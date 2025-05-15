@@ -1,0 +1,29 @@
+.footerContainer {
+  -webkit-box-align: center;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--urban-white);
+  /* display: flex; */
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  /* border-radius: 5px; */
+  padding: 150px 64px;
+  color: var(--urban-green);
+}
+
+.footer {
+  overflow: hidden;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  position: relative;
+  z-index: 1;
+}
+
+.footer-title {
+  font-size: 150px;
+  line-height: 170px;
+  font-weight: 500;
+  color: var(--urban-green);
+  text-wrap: nowrap;
+  margin: 0 auto;
+}

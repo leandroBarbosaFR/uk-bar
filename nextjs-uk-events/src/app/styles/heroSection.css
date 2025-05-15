@@ -1,0 +1,15 @@
+.hero-title {
+  color: var(--urban-white);
+}
+
+.hero-subtitle {
+  font-weight: 400;
+  color: var(--urban-white);
+  text-align: center;
+}
+
+.hero-body {
+  font-weight: 400;
+  color: var(--urban-white);
+  text-align: center;
+}

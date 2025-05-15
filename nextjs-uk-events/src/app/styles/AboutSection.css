@@ -1,0 +1,54 @@
+.aboutPageSection {
+  padding: 100px 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.aboutPageTitle {
+  grid-column: 1/12;
+  grid-row: 2;
+  font-size: 50px;
+  line-height: 55px;
+  font-weight: 700;
+  color: var(--urban-green);
+}
+
+.aboutPageSubtitle {
+  grid-column: 1/12;
+  grid-row: 1;
+  color: var(--urban-green);
+}
+
+.body-images {
+  color: var(--urban-green);
+}
+
+.title-images {
+  font-size: 50px;
+  line-height: 55px;
+  font-weight: 700;
+  color: var(--urban-green);
+}
+
+.aboutPageBody {
+  grid-column: 1/12;
+  grid-row: 3;
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
