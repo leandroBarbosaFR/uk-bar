@@ -3,7 +3,7 @@ import {client} from '@/sanity/client'
 import Link from 'next/link'
 import '../styles/header.css'
 import Image from 'next/image'
-import Logo from '../assets/SambaBarLogo.png'
+import Logo from '../../../public/assets/SambaBarLogo.png'
 
 interface NavLink {
   _key: string

@@ -1,9 +1,6 @@
 import {type SanityDocument} from 'next-sanity'
 import {client} from '@/sanity/client'
-import Link from 'next/link'
 import '../styles/footer.css'
-import Image from 'next/image'
-import Logo from '../assets/SambaBarLogo.png'
 
 interface NavLink {
   _key: string
@@ -24,7 +21,6 @@ const LINK_QUERY = `*[_type == "header"][0] {
   title
 }`
 
-const logo = Logo
 const options = {next: {revalidate: 30}}
 
 export default async function Footer() {
