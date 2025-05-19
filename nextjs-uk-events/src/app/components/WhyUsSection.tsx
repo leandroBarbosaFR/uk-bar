@@ -67,7 +67,7 @@ export default function WhyUsSection() {
     <section className="w-full py-30 bg-[#33483e]" id="whyUs">
       <h2 className="text-4xl font-bold text-center mb-12 text-[#FAFAFA]">{sectionTitle}</h2>
       {sectionBody && (
-        <div className="prose text-white text-center mx-auto w-1/3 mb-12  item-description">
+        <div className="prose text-white text-center mx-auto w-full md:w-1/3 mb-12 item-description">
           <PortableText value={sectionBody} />
         </div>
       )}
