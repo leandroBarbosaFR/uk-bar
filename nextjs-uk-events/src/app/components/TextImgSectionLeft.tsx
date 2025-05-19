@@ -7,7 +7,7 @@ import type {PortableTextBlock} from '@portabletext/types'
 import {client} from '@/sanity/client'
 import {urlFor} from '../../lib/sanityImage'
 
-import '../styles/TextImgSectionLeft.css'
+import '../styles/TextImgSectionLeft.module.css'
 
 const TextImgSectionLeft_QUERY = `*[_type == "TextImgSectionLeft"][0]{ _id, title, subtitle, image, body }`
 

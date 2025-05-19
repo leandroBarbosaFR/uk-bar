@@ -34,7 +34,7 @@
   padding: 0 1rem;
 }
 
-ul {
+.navdrawer-links {
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -42,8 +42,8 @@ ul {
   font-weight: 600;
 }
 
-li:hover,
-li:active,
-li:visited {
+.navdrawer-links-list:hover,
+.navdrawer-links-list:active,
+.navdrawer-links-list:visited {
   color: rgba(255, 255, 255, 0.8);
 }

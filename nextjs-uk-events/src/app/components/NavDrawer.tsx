@@ -22,9 +22,9 @@ export default function NavDrawer({links, isOpen, onClose}: NavDrawerProps) {
   return (
     <div className="navDrawerOverlay" onClick={onClose}>
       <nav className="navDrawer" onClick={(e) => e.stopPropagation()}>
-        <ul>
+        <ul className="navdrawer-links">
           {links.map((link) => (
-            <li key={link._key}>
+            <li key={link._key} className=".navdrawer-links-list">
               <a
                 href={link.type === 'internal' ? link.anchor : `https://${link.anchor}`}
                 target={link.blank ? '_blank' : '_self'}
