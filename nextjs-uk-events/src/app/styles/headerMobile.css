@@ -29,6 +29,15 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.burgerButton {
+  color: white;
+}
+
+.burgerButton:hover,
+.burgerButton:active {
+  color: rgba(255, 255, 255, 0.8);
+}
+
 @media (max-width: 768px) {
   .headerMobile {
     background-color: var(--urban-green);

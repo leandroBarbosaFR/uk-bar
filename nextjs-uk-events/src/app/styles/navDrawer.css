@@ -1,6 +1,6 @@
 .navDrawerOverlay {
   position: fixed;
-  top: 104px; /* height of your headerMobile */
+  top: 98px; /* height of your headerMobile */
   left: 0;
   right: 0;
   bottom: 0;
@@ -11,13 +11,13 @@
 }
 
 .navDrawer {
-  background: white;
+  background: var(--urban-green);
   width: 100%;
   height: 100%;
   padding: 1rem;
-  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   /* No need for top here since parent overlay is already positioned */
 }
 
@@ -33,5 +33,18 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  color: white;
+  font-weight: 600;
+}
+
+li:hover,
+li:active,
+li:visited {
+  color: rgba(255, 255, 255, 0.8);
 }
