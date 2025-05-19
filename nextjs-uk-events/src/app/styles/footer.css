@@ -27,3 +27,14 @@
   text-wrap: nowrap;
   margin: 0 auto;
 }
+
+@media (max-width: 768px) {
+  .footerContainer {
+    padding: 50px 20px;
+  }
+
+  .footer-title {
+    font-size: 30px;
+    font-weight: 700;
+  }
+}
