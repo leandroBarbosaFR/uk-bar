@@ -26,6 +26,7 @@
 
 .body-images {
   color: var(--urban-green);
+  font-family: var(--font-geist-mono);
 }
 
 .title-images {

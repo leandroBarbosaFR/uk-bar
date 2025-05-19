@@ -7,6 +7,8 @@ import {urlFor} from '../../lib/sanityImage'
 import {PortableText} from '@portabletext/react'
 import type {PortableTextBlock} from '@portabletext/types'
 import {client} from '@/sanity/client'
+//style
+import '../styles/textMarqueeSection.css'
 
 const TextMarqueeSection_QUERY = `*[_type == "TextMarqueeSection"]{
   _id,
@@ -83,7 +85,7 @@ const TextMarqueeSection = () => {
         {title && <h2 className=" text-[#33483e] text-3xl font-bold mb-4">{title}</h2>}
         {subtitle && <h3 className="text-xl mb-3">{subtitle}</h3>}
         {body && (
-          <div className="mb-6 text-[#33483e]">
+          <div className="mb-6 text-[#33483e] item-description">
             <PortableText value={body} />
           </div>
         )}
@@ -99,11 +101,11 @@ const TextMarqueeSection = () => {
       {/* Marquee content */}
       <div className="col-span-12 md:col-span-6 space-y-6">
         {topMarqueeImages && topMarqueeImages.length > 0 && (
-          <Marquee speed={20} gradient={false} direction="right">
+          <Marquee speed={20} gradient={false} direction="left">
             {topMarqueeImages.map((image: MarqueeImage, index: number) => (
               <div key={`top-${index}`} className="mr-4 rounded overflow-hidden">
                 <Image
-                  src={urlFor(image.asset).width(300).height(200).url()}
+                  src={urlFor(image.asset).width(600).height(400).quality(100).auto('format').url()}
                   alt={image.alt || `Image ${index + 1}`}
                   width={300}
                   height={200}
@@ -115,11 +117,11 @@ const TextMarqueeSection = () => {
         )}
 
         {bottomMarqueeImages && bottomMarqueeImages.length > 0 && (
-          <Marquee speed={20} gradient={false} direction="left">
+          <Marquee speed={20} gradient={false} direction="right">
             {topMarqueeImages.map((image: MarqueeImage, index: number) => (
               <div key={`top-${index}`} className="mr-4 rounded overflow-hidden">
                 <Image
-                  src={urlFor(image.asset).width(300).height(200).url()}
+                  src={urlFor(image.asset).width(600).height(400).quality(100).auto('format').url()}
                   alt={image.alt || `Image ${index + 1}`}
                   width={300}
                   height={200}

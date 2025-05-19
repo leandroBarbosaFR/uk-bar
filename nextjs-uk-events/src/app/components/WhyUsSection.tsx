@@ -5,6 +5,8 @@ import Image from 'next/image'
 import {PortableText} from '@portabletext/react'
 import {urlFor} from '../../lib/sanityImage'
 import {TypedObject} from 'sanity'
+// Styles
+import '../styles/whyusSection.css'
 
 const WHYUS_QUERY = `*[_type == "whyus"][0] {
   title,
@@ -65,7 +67,7 @@ export default function WhyUsSection() {
     <section className="w-full py-30 bg-[#33483e]" id="whyUs">
       <h2 className="text-4xl font-bold text-center mb-12 text-[#FAFAFA]">{sectionTitle}</h2>
       {sectionBody && (
-        <div className="prose text-white text-center mx-auto w-1/3 mb-12">
+        <div className="prose text-white text-center mx-auto w-1/3 mb-12  item-description">
           <PortableText value={sectionBody} />
         </div>
       )}
@@ -87,7 +89,7 @@ export default function WhyUsSection() {
             <div className="absolute inset-0 bg-[#33483e] opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center text-center p-6">
               <div className="text-white transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                 <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                <p className="text-sm">{item.description}</p>
+                <p className="text-sm item-description">{item.description}</p>
               </div>
             </div>
           </div>

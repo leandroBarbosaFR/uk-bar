@@ -1,3 +1,7 @@
 .right-image-section {
   padding: 0 0 150px 0;
 }
+
+.item-description {
+  font-family: var(--font-geist-mono);
+}
