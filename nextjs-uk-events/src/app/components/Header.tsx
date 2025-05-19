@@ -29,7 +29,7 @@ const options = {next: {revalidate: 30}}
 
 export default async function Header() {
   const nav = await client.fetch<SanityDocument>(LINK_QUERY, {}, options)
-  console.log(nav)
+
   return (
     <>
       <header className="header">

@@ -115,7 +115,7 @@ const TextMarqueeSection = () => {
         )}
 
         {bottomMarqueeImages && bottomMarqueeImages.length > 0 && (
-          <Marquee speed={20} gradient={false} direction="right">
+          <Marquee speed={20} gradient={false} direction="left">
             {topMarqueeImages.map((image: MarqueeImage, index: number) => (
               <div key={`top-${index}`} className="mr-4 rounded overflow-hidden">
                 <Image

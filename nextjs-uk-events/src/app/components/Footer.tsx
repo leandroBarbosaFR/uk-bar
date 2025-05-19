@@ -25,7 +25,7 @@ const options = {next: {revalidate: 30}}
 
 export default async function Footer() {
   const nav = await client.fetch<SanityDocument>(LINK_QUERY, {}, options)
-  console.log(nav)
+
   return (
     <>
       <footer className="footer">
