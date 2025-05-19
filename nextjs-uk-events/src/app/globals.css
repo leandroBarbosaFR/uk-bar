@@ -22,7 +22,7 @@
 }
 
 body {
-  background: var(--background);
+  background: #f1f0e7;
   color: var(--foreground);
   font-family: Poppins, Helvetica, sans-serif;
 }

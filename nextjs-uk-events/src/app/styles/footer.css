@@ -2,7 +2,7 @@
   -webkit-box-align: center;
   align-items: center;
   gap: 20px;
-  background-color: var(--urban-white);
+  background-color: #f1f0e7;
   /* display: flex; */
   -webkit-box-pack: justify;
   justify-content: space-between;
@@ -13,8 +13,8 @@
 
 .footer {
   overflow: hidden;
-  background-color: transparent;
-  color: rgb(255, 255, 255);
+  background-color: #f1f0e7;
+  color: #1a1a1a;
   position: relative;
   z-index: 1;
 }

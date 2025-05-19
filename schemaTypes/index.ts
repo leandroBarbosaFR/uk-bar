@@ -1,6 +1,19 @@
 import {postType} from './postType'
 import {heroType} from './heroType'
 import {headerType} from './headerType'
-import {AboutType} from './AboutType'
+import {aboutType} from './aboutType'
+import {whyusType} from './whyusType'
+import {TextImgSectionLeftType} from './TextImgSectionLeftType'
+import {TextImgSectionRightType} from './TextImgSectionRightType'
+import {TextMarqueeSectionType} from './TextMarqueeSectionType'
 
-export const schemaTypes = [postType, heroType, headerType, AboutType]
+export const schemaTypes = [
+  postType,
+  heroType,
+  headerType,
+  aboutType,
+  whyusType,
+  TextImgSectionRightType,
+  TextImgSectionLeftType,
+  TextMarqueeSectionType,
+]

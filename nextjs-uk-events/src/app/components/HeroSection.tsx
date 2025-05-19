@@ -3,6 +3,7 @@
 import React, {useEffect, useState, useRef} from 'react'
 import Image from 'next/image'
 import {PortableText} from '@portabletext/react'
+import type {PortableTextBlock} from '@portabletext/types'
 import {client} from '@/sanity/client'
 import {urlFor} from '../../lib/sanityImage'
 import gsap from 'gsap'
@@ -14,7 +15,19 @@ gsap.registerPlugin(ScrollTrigger)
 const HERO_QUERY = `*[_type == "hero"][0]{ _id, title, subtitle, image, body }`
 
 export default function HeroSection() {
-  const [hero, setHero] = useState<any>(null)
+  interface HeroData {
+    title: string
+    subtitle: string
+    body: PortableTextBlock[]
+    image: {
+      asset: {
+        _ref: string
+        _type: string
+      }
+    }
+  }
+
+  const [hero, setHero] = useState<HeroData | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

@@ -106,7 +106,9 @@ export default function AboutSection() {
             </div>
             <div
               className="aboutPageImage col-span-12 md:col-span-6"
-              ref={(el) => (imageRefs.current[0] = el)}
+              ref={(el) => {
+                imageRefs.current[0] = el
+              }}
             >
               {about.leftImage && (
                 <Image
@@ -119,7 +121,12 @@ export default function AboutSection() {
               )}
             </div>
             <div className="grid col-span-12 md:col-span-6 gap-6 mt-12">
-              <div className="col-span-12 md:col-span-7" ref={(el) => (imageRefs.current[1] = el)}>
+              <div
+                className="col-span-12 md:col-span-7"
+                ref={(el) => {
+                  imageRefs.current[1] = el
+                }}
+              >
                 {about.middleImage && (
                   <Image
                     src={urlFor(about.middleImage).width(1200).url()}
@@ -130,7 +137,12 @@ export default function AboutSection() {
                   />
                 )}
               </div>
-              <div className="col-span-12 md:col-span-5" ref={(el) => (imageRefs.current[2] = el)}>
+              <div
+                className="col-span-12 md:col-span-5"
+                ref={(el) => {
+                  imageRefs.current[2] = el
+                }}
+              >
                 {about.rightImage && (
                   <Image
                     src={urlFor(about.rightImage).width(1200).url()}

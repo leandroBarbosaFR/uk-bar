@@ -1,6 +1,4 @@
 'use client'
-
-import {useEffect} from 'react'
 import Marquee from 'react-fast-marquee'
 import Image from 'next/image'
 import '../styles/marquee.css'
@@ -15,14 +13,6 @@ const IMAGES = [
 const WORDS = ['SAMBA', 'COCKTAIL', 'MIXOLOGY', 'PARTY']
 
 export default function MarqueeComponent() {
-  // Install the Marquee package if it's being used in a project
-  useEffect(() => {
-    console.log('Marquee component mounted. Make sure to install react-fast-marquee:')
-    console.log('npm install react-fast-marquee')
-    // or
-    console.log('yarn add react-fast-marquee')
-  }, [])
-
   return (
     <div className="marquee-wrapper">
       <Marquee
@@ -33,7 +23,6 @@ export default function MarqueeComponent() {
         pauseOnClick={false}
         className="custom-marquee"
       >
-        {/* Repeat the pattern of word then image */}
         {WORDS.map((word, index) => (
           <div key={index} className="marquee-item-container">
             <div className="marquee-word">{word}</div>
