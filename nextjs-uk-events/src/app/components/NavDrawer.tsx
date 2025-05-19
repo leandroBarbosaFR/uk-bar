@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import '../styles/navDrawer.css'
+import '../styles/navDrawer.module.css'
 
 interface NavLink {
   _key: string

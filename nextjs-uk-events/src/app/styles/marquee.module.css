@@ -39,9 +39,9 @@
     font-size: 200px;
   }
 
-  .custom-marquee {
+  /* .custom-marquee {
     height: 240px;
-  }
+  } */
 }
 
 @media (max-width: 768px) {
@@ -55,5 +55,10 @@
 
   .marquee-item-container {
     margin: 0 1.5rem;
+  }
+
+  .img {
+    object-fit: contain;
+    height: 160px;
   }
 }

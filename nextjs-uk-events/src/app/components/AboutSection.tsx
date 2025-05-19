@@ -5,7 +5,7 @@ import Image from 'next/image'
 import {PortableText} from '@portabletext/react'
 import {client} from '@/sanity/client'
 import {urlFor} from '../../lib/sanityImage'
-import '../styles/AboutSection.css'
+import '../styles/AboutSection.module.css'
 import {type SanityDocument} from 'next-sanity'
 import gsap from 'gsap'
 

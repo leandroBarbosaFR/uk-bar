@@ -1,11 +1,11 @@
 .navDrawerOverlay {
   position: fixed;
-  top: 98px; /* height of your headerMobile */
+  top: 98px;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: var(--urban-green);
-  z-index: 999; /* less than header if header is z-index 1000 */
+  z-index: 999;
   display: flex;
   justify-content: flex-end;
 }
@@ -18,7 +18,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* No need for top here since parent overlay is already positioned */
 }
 
 .headerMobile {
@@ -26,9 +25,9 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 80px; /* or your exact header height */
+  height: 80px;
   background-color: var(--urban-green);
-  z-index: 1000; /* above drawer */
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -6,6 +6,7 @@ import {whyusType} from './whyusType'
 import {TextImgSectionLeftType} from './TextImgSectionLeftType'
 import {TextImgSectionRightType} from './TextImgSectionRightType'
 import {TextMarqueeSectionType} from './TextMarqueeSectionType'
+import {MarqueeSectionType} from './MarqueeSectionType'
 
 export const schemaTypes = [
   postType,
@@ -16,4 +17,5 @@ export const schemaTypes = [
   TextImgSectionRightType,
   TextImgSectionLeftType,
   TextMarqueeSectionType,
+  MarqueeSectionType,
 ]

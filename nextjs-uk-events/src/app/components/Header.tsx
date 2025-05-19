@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Logo from '../../../public/assets/SambaBarLogo.png'
 import {type SanityDocument} from 'next-sanity'
-import '../styles/header.css'
+import '../styles/header.module.css'
 import HeaderMobile from '../components/HeaderMobile'
 
 interface NavLink {
