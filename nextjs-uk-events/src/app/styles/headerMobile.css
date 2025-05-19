@@ -1,0 +1,31 @@
+.headerMobileContainer {
+  -webkit-box-align: center;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--urban-green);
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  border-radius: 5px;
+  padding: 16px 64px;
+  color: var(--urban-white);
+  border: 1px solid transparent;
+}
+
+.headerMobile {
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  display: flex;
+  position: fixed;
+  top: 0%;
+  z-index: 1000;
+  align-items: center;
+  width: 100%;
+}
+
+.headerMobileContainer.scrolled {
+  border: 1px solid white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
