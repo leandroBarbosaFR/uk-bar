@@ -1,9 +1,12 @@
-import {type SanityDocument} from 'next-sanity'
+'use client'
+import React, {useState, useEffect} from 'react'
+import {useScroll} from '@/hooks/useScroll'
 import {client} from '@/sanity/client'
 import Link from 'next/link'
-import '../styles/header.css'
 import Image from 'next/image'
 import Logo from '../../../public/assets/SambaBarLogo.png'
+import {type SanityDocument} from 'next-sanity'
+import '../styles/header.css'
 
 interface NavLink {
   _key: string
@@ -27,31 +30,37 @@ const LINK_QUERY = `*[_type == "header"][0] {
 const logo = Logo
 const options = {next: {revalidate: 30}}
 
-export default async function Header() {
-  const nav = await client.fetch<SanityDocument>(LINK_QUERY, {}, options)
+export default function Header() {
+  const isScrolled = useScroll()
+
+  const [nav, setNav] = useState<SanityDocument | null>(null)
+
+  useEffect(() => {
+    client.fetch<SanityDocument>(LINK_QUERY, {}, options).then(setNav)
+  }, [])
+
+  if (!nav) return null
 
   return (
-    <>
-      <header className="header">
-        <div className="headerContainer" style={{}}>
-          <Link href="/">
-            <Image src={logo} alt="Hero image" width={80} height={80} />
-          </Link>
-          <nav className="flex gap-6">
-            {nav.links?.map((link: NavLink) => (
-              <a
-                key={link._key}
-                href={link.type === 'internal' ? link.anchor : `https://${link.anchor}`}
-                target={link.blank ? '_blank' : '_self'}
-                rel={link.blank ? 'noopener noreferrer' : undefined}
-                className="navLink"
-              >
-                {link.text}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </header>
-    </>
+    <header className="header">
+      <div className={`headerContainer ${isScrolled ? 'scrolled' : ''}`}>
+        <Link href="/">
+          <Image src={logo} alt="Hero image" width={80} height={80} />
+        </Link>
+        <nav className="flex gap-6">
+          {nav.links?.map((link: NavLink) => (
+            <a
+              key={link._key}
+              href={link.type === 'internal' ? link.anchor : `https://${link.anchor}`}
+              target={link.blank ? '_blank' : '_self'}
+              rel={link.blank ? 'noopener noreferrer' : undefined}
+              className="navLink"
+            >
+              {link.text}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
   )
 }
