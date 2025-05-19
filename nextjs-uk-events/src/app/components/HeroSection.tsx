@@ -82,14 +82,12 @@ export default function HeroSection() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/20 z-10"></div>
 
-      <div className="justify-items-center gap-8 grid grid-cols-12 absolute z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4 max-w-7xl mx-auto">
-        <h1 className="col-span-12 row-start-2 hero-title text-4xl sm:text-7xl md:text-8xl lg:text-[200px] font-bold whitespace-normal sm:whitespace-nowrap">
-          {hero.title}
-        </h1>
-        <h3 className="col-span-12 row-start-1 hero-subtitle text-1xl sm:text-4xl md:text-4xl lg:text-[30px] whitespace-normal sm:whitespace-nowrap">
-          {hero.subtitle}
-        </h3>
-        <div className="col-span-12 row-start-3 hero-body text-1xl sm:text-4xl md:text-4xl lg:text-[24px] whitespace-normal sm:whitespace-nowrap">
+      <div className="justify-items-center hero-section-container absolute z-20">
+        <h1 className="hero-title">{hero.title}</h1>
+        <div className="hero-subtitle">
+          <h3>{hero.subtitle}</h3>
+        </div>
+        <div className="hero-body">
           <PortableText value={hero.body} />
         </div>
       </div>

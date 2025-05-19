@@ -29,7 +29,7 @@ export default function HeaderMobile({links}: HeaderMobileProps) {
       <Link href="/">
         <Image src={Logo} alt="Logo" width={60} height={60} />
       </Link>
-      <button onClick={toggleMenu} aria-label="Toggle menu" className="burgerButton ">
+      <button onClick={toggleMenu} aria-label="Toggle menu" className="burgerButton">
         {isOpen ? (
           <span style={{fontSize: '2rem', lineHeight: 1, cursor: 'pointer'}}>&times;</span>
         ) : (

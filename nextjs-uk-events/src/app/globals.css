@@ -22,7 +22,12 @@
 }
 
 body {
-  background: #f1f0e7;
+  background: var(--background); /* Use your theme variable instead of hardcoded color */
   color: var(--foreground);
   font-family: var(--font-geist-sans);
+  overflow: auto;
+  margin: 0px;
+  padding: 0px;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
 }
