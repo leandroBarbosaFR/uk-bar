@@ -31,3 +31,7 @@ body {
   -webkit-font-smoothing: antialiased;
   position: relative;
 }
+
+main {
+  overflow: hidden;
+}
