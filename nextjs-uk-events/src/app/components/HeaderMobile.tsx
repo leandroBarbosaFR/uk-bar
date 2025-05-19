@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import NavDrawer from './NavDrawer'
 import Logo from '../../../public/assets/SambaBarLogo.png'
-import '../styles/headerMobile.module.css'
+import '../styles/headerMobile.css'
 
 interface NavLink {
   _key: string

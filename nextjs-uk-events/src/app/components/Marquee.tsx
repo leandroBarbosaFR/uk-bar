@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react'
 import Marquee from 'react-fast-marquee'
 import Image from 'next/image'
 import {client} from '@/sanity/client'
-import '../styles/marquee.module.css'
+import '../styles/marquee.css'
 
 const MARQUEE_QUERY = `*[_type == "marqueeSection"][0] {
   words[],

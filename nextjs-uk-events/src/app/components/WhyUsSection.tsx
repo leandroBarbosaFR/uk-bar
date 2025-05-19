@@ -6,7 +6,7 @@ import {PortableText} from '@portabletext/react'
 import {urlFor} from '../../lib/sanityImage'
 import {TypedObject} from 'sanity'
 // Styles
-import '../styles/whyusSection.module.css'
+import '../styles/whyusSection.css'
 
 const WHYUS_QUERY = `*[_type == "whyus"][0] {
   title,

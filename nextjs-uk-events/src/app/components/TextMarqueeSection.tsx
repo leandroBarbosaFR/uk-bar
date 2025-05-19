@@ -8,7 +8,7 @@ import {PortableText} from '@portabletext/react'
 import type {PortableTextBlock} from '@portabletext/types'
 import {client} from '@/sanity/client'
 //style
-import '../styles/textMarqueeSection.module.css'
+import '../styles/textMarqueeSection.css'
 
 const TextMarqueeSection_QUERY = `*[_type == "TextMarqueeSection"]{
   _id,

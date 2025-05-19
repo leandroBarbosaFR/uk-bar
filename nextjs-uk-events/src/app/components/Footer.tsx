@@ -1,6 +1,6 @@
 import {type SanityDocument} from 'next-sanity'
 import {client} from '@/sanity/client'
-import '../styles/footer.module.css'
+import '../styles/footer.css'
 
 interface NavLink {
   _key: string

@@ -8,7 +8,7 @@ import {client} from '@/sanity/client'
 import {urlFor} from '../../lib/sanityImage'
 import gsap from 'gsap'
 import {ScrollTrigger} from 'gsap/dist/ScrollTrigger'
-import '../styles/heroSection.module.css'
+import '../styles/heroSection.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
