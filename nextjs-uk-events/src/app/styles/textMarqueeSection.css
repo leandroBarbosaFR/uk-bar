@@ -1,3 +1,18 @@
 .item-description {
   font-family: var(--font-geist-mono);
 }
+
+.text-marquee-section {
+  padding: 150px 0;
+}
+
+@media (max-width: 768px) {
+  .text-marquee-section {
+    padding: 50px 0;
+  }
+
+  .container-marquee-section {
+    padding: 0px 8px;
+    grid-column: 1/12;
+  }
+}

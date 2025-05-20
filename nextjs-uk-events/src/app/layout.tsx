@@ -1,6 +1,8 @@
 import type {Metadata} from 'next'
 import {Geist, Lora} from 'next/font/google'
 import './globals.css'
+import Footer from '../app/components/Footer'
+import Header from '../app/components/Header'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -13,8 +15,8 @@ const geistMono = Lora({
 })
 
 export const metadata: Metadata = {
-  title: '🍸 Uk Bar Events',
-  description: 'Uk Bar Events',
+  title: '🍸 Samba Bar Events',
+  description: 'Samba Bar Events',
 }
 
 export default function RootLayout({
@@ -24,7 +26,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }

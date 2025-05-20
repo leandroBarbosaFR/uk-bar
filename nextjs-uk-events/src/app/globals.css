@@ -3,7 +3,8 @@
 :root {
   --background: #171717;
   --foreground: #ffffff;
-  --urban-green: #33483e;
+  --urban-green: rgb(51, 72, 62);
+  --urban-green-opacity: rgba(51, 72, 62, 0.8);
   --urban-white: #fafafa;
 }
 

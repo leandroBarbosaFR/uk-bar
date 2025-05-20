@@ -1,22 +1,30 @@
 import {type SanityDocument} from 'next-sanity'
 import {client} from '@/sanity/client'
+import Link from 'next/link'
 import '../styles/footer.css'
+import LogoSvg from '../components/LogoSvg'
 
 interface NavLink {
   _key: string
-  type: 'internal' | 'external'
-  anchor: string
   text: string
   blank?: boolean
+  internal?: {
+    _type: string
+    slug: string
+  }
+  external?: string
 }
 
 const LINK_QUERY = `*[_type == "header"][0] {
   links[] {
     _key,
     text,
-    type,
-    anchor,
-    blank
+    blank,
+    internal->{
+      _type,
+      "slug": slug.current
+    },
+    external
   },
   title
 }`
@@ -30,27 +38,40 @@ export default async function Footer() {
     <>
       <footer className="footer">
         <div className="footerContainer grid grid-cols-12">
-          {/* <Link href="/">
-            <Image src={logo} alt="Hero image" width={80} height={80} />
-          </Link> */}
-          <nav className="flex gap-6 col-span-6 row-start-2">
-            {nav.links?.map((link: NavLink) => (
-              <a
-                key={link._key}
-                href={link.type === 'internal' ? link.anchor : `https://${link.anchor}`}
-                target={link.blank ? '_blank' : '_self'}
-                rel={link.blank ? 'noopener noreferrer' : undefined}
-                className="navLink"
-              >
-                {link.text}
-              </a>
-            ))}
-          </nav>
-          <h1 className="footer-title col-span-12 row-start-3">Samba Bar Events</h1>
+          <div className="footer-nav">
+            {nav?.links?.length ? (
+              nav.links.map((link: NavLink) => {
+                const href = link.internal ? `/${link.internal.slug}` : link.external || '#'
+                return (
+                  <Link
+                    key={link._key}
+                    href={href}
+                    target={link.blank ? '_blank' : '_self'}
+                    rel={link.blank ? 'noopener noreferrer' : undefined}
+                    className="navLink-footer"
+                  >
+                    {link.text}
+                  </Link>
+                )
+              })
+            ) : (
+              <p className="col-span-12 text-center">No footer links available.</p>
+            )}
+          </div>
+
+          {/* <h1 className="footer-title col-span-12 row-start-3">SAMBA BAR EVENTS</h1> */}
           <div
-            className="col-span-12 row-start-4"
-            style={{borderBottom: ' .5px solid #33483e', width: '90%', margin: '0 auto'}}
-          ></div>
+            className="flex justify-center row-start-4"
+            style={{gridColumn: '2/12', gridRow: '2'}}
+          >
+            <LogoSvg />
+          </div>
+          <div className="footer-links">
+            <span>
+              © {new Date().getFullYear()} Samba Bar Events. All rights reserved | Designed and
+              built by 1367 Studio.
+            </span>
+          </div>
         </div>
       </footer>
     </>

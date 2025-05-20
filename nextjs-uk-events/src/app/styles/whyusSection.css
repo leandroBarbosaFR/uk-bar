@@ -1,3 +1,9 @@
 .item-description {
   font-family: var(--font-geist-mono);
 }
+
+@media (max-width: 768px) {
+  .item-description {
+    padding: 0 8px;
+  }
+}

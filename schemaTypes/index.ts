@@ -7,6 +7,10 @@ import {TextImgSectionLeftType} from './TextImgSectionLeftType'
 import {TextImgSectionRightType} from './TextImgSectionRightType'
 import {TextMarqueeSectionType} from './TextMarqueeSectionType'
 import {MarqueeSectionType} from './MarqueeSectionType'
+import {contactPageType} from './contactPageType'
+import {linkType} from './link'
+import {cocktailBarHireType} from './cocktailBarHireType'
+import {mobileBarHirePackagesType} from './mobileBarHirePackagesType'
 
 export const schemaTypes = [
   postType,
@@ -18,4 +22,8 @@ export const schemaTypes = [
   TextImgSectionLeftType,
   TextMarqueeSectionType,
   MarqueeSectionType,
+  contactPageType,
+  linkType,
+  cocktailBarHireType,
+  mobileBarHirePackagesType,
 ]

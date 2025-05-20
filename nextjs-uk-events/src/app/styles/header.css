@@ -29,3 +29,18 @@
   border: 1px solid white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.navLink {
+  text-wrap: nowrap;
+  color: #f1f0e7;
+  background: transparent;
+  border-radius: 5px;
+  padding: 6px 10px;
+}
+
+.navLink:hover,
+.navLink:active {
+  color: var(--urban-green);
+  background: #f1f0e7;
+  border-radius: 5px;
+}

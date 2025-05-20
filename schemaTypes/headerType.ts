@@ -9,14 +9,7 @@ export const headerType = defineType({
       name: 'links',
       title: 'Links',
       type: 'array',
-      of: [
-        {
-          type: 'link',
-          options: {
-            enableText: true,
-          },
-        },
-      ],
+      of: [{type: 'links'}],
     }),
   ],
 })

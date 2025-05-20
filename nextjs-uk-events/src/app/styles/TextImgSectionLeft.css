@@ -1,3 +1,9 @@
 .item-description {
   font-family: var(--font-geist-mono);
 }
+
+@media (max-width: 768px) {
+  .left-image-section {
+    padding: 50px 0 50px 0;
+  }
+}

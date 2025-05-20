@@ -11,19 +11,25 @@ import HeaderMobile from '../components/HeaderMobile'
 
 interface NavLink {
   _key: string
-  type: 'internal' | 'external'
-  anchor: string
   text: string
   blank?: boolean
+  internal?: {
+    _type: string
+    slug: string
+  }
+  external?: string
 }
 
 const LINK_QUERY = `*[_type == "header"][0] {
   links[] {
     _key,
     text,
-    type,
-    anchor,
-    blank
+    blank,
+    internal->{
+      _type,
+      "slug": slug.current
+    },
+    external
   },
   title
 }`
@@ -61,19 +67,21 @@ export default function Header() {
         <Link href="/">
           <Image src={logo} alt="Hero image" width={80} height={80} />
         </Link>
-        <nav className="flex gap-6">
-          {nav.links?.map((link: NavLink) => (
-            <a
+        {nav.links?.map((link: NavLink) => {
+          const href = link.internal ? `/${link.internal.slug}` : link.external || '#'
+
+          return (
+            <Link
               key={link._key}
-              href={link.type === 'internal' ? link.anchor : `https://${link.anchor}`}
+              href={href}
               target={link.blank ? '_blank' : '_self'}
               rel={link.blank ? 'noopener noreferrer' : undefined}
               className="navLink"
             >
               {link.text}
-            </a>
-          ))}
-        </nav>
+            </Link>
+          )
+        })}
       </div>
     </header>
   )
