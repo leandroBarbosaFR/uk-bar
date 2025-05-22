@@ -15,7 +15,7 @@ interface NavLink {
   external?: string
 }
 
-const LINK_QUERY = `*[_type == "header"][0] {
+const LINK_QUERY = `*[_type == "footer"][0] {
   links[] {
     _key,
     text,
@@ -69,7 +69,7 @@ export default async function Footer() {
           <div className="footer-links">
             <span>
               © {new Date().getFullYear()} Samba Bar Events. All rights reserved | Designed and
-              built by 1367 Studio.
+              built by <a href='https://www.1367studio.com' target='_blank'>1367 Studio</a>.
             </span>
           </div>
         </div>

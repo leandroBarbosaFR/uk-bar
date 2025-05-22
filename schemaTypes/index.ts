@@ -11,6 +11,11 @@ import {contactPageType} from './contactPageType'
 import {linkType} from './link'
 import {cocktailBarHireType} from './cocktailBarHireType'
 import {mobileBarHirePackagesType} from './mobileBarHirePackagesType'
+import {termsAndConditionsPageType} from './termsAndConditionsPageType'
+import {privacyPolicyPageType} from './privacyPolicyPageType'
+import {footerType} from './footerType'
+
+
 
 export const schemaTypes = [
   postType,
@@ -26,4 +31,7 @@ export const schemaTypes = [
   linkType,
   cocktailBarHireType,
   mobileBarHirePackagesType,
+  termsAndConditionsPageType,
+  privacyPolicyPageType,
+  footerType
 ]
