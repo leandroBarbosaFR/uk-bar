@@ -3,6 +3,7 @@ import {Geist, Lora} from 'next/font/google'
 import './globals.css'
 import Footer from '../app/components/Footer'
 import Header from '../app/components/Header'
+import CookieModal from '../app/components/CookieModal'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -28,6 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header />
+        <CookieModal />
         {children}
         <Footer />
       </body>

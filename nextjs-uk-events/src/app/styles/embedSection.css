@@ -1,5 +1,5 @@
 .title-section-embed {
-  font-size: 130px;
+  /* font-size: 130px; */
   font-weight: 700;
   color: #f1f0e7;
 }
@@ -19,7 +19,7 @@
 
 @media (max-width: 768px) {
   .title-section-embed {
-    font-size: 35px;
+    /* font-size: 35px; */
     font-weight: 700;
     color: #f1f0e7;
   }

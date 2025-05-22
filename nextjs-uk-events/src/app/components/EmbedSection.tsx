@@ -17,7 +17,7 @@ export default function EmbedSection() {
   return (
     <section className="bg-[#33483e] overflow-hidden relative isolate " id="embed-section">
       <div className="title-wrapper-embed">
-        <h1 className="title-section-embed">CAIPIRINHA MASTER CLASS</h1>
+        <h1 className="title-section-embed text-4xl sm:text-7xl text-center md:text-5xl lg:text-[100px]">CAIPIRINHA MASTER CLASS</h1>
       </div>
       <div className="w-[100%] max-w-[1000px] aspect-video overflow-hidden relative">
         <ReactPlayerNoSSR
