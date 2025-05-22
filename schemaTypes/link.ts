@@ -15,7 +15,7 @@ export const linkType = defineType({
       name: 'internal',
       title: 'Internal Link',
       type: 'reference',
-      to: [{type: 'contactPage'}, {type: 'cocktailBarHire'}, {type: 'mobileBarHirePackages'}],
+      to: [{type: 'contactPage'}, {type: 'cocktailBarHire'}, {type: 'mobileBarHirePackages'},{type: 'privacyPolicyPage'}, {type: 'termsAndConditionsPage'}],
     }),
     defineField({name: 'external', title: 'External URL', type: 'url'}),
     defineField({

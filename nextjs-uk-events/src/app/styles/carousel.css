@@ -7,7 +7,7 @@
   background: var(--urban-green);
   border-radius: 0 0 400% 400%;
   transform: translateX(-50%);
-  z-index: 10000;
+  z-index: 999;
   pointer-events: none;
 }
 
@@ -20,7 +20,7 @@
   background: var(--urban-green);
   border-radius: 0 0 400% 400%;
   transform: translateX(-50%);
-  z-index: 10000;
+  z-index: 999;
   pointer-events: none;
 }
 
