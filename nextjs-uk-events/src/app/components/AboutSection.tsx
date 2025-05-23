@@ -92,9 +92,11 @@ export default function AboutSection() {
 
   return (
     <section id="AboutUs" ref={sectionRef} className="aboutPageSection">
+      <div className='about-bg-section'></div>
       {about && (
-        <div className="container px-0 md:px-8">
+        <div className="container px-0 md:px-8 ">
           <div className="aboutPageGrid grid grid-cols-12 gap-6">
+
             <div className="aboutPageSubtitle">
               <h3 ref={subtitleRef}>{about.subtitle}</h3>
             </div>

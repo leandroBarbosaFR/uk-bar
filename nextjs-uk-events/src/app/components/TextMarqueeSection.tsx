@@ -77,6 +77,7 @@ const TextMarqueeSection = () => {
 
   return (
     <section className="grid grid-cols-12 gap-8 p-10 items-center text-marquee-section">
+      <div className='textMarqueeSection-bg-section'></div>
       {/* Text content */}
       <div className=" container-marquee-section col-span-12 md:col-start-2 md:col-end-7">
         {title && <h2 className=" text-[#33483e] text-3xl font-bold mb-4">{title}</h2>}

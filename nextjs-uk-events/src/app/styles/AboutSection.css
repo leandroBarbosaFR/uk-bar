@@ -1,5 +1,24 @@
 .aboutPageSection {
   padding: 100px 0;
+  position: relative;
+}
+
+.about-bg-section {
+  position: absolute;
+  top: 0;
+  right: auto;
+  width: 50%;
+  height: 100%;
+  /* transform: skewX(12deg) translateX(-8rem); original */
+  transform: skewX(46deg)translateX(-32rem);
+  display: none;
+  background:rgba(51, 72, 62, 0.1)
+}
+
+@media (min-width: 1024px) {
+  .about-bg-section {
+    display: block;
+  }
 }
 
 .container {

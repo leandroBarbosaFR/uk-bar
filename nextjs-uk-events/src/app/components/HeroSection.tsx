@@ -80,7 +80,7 @@ export default function HeroSection() {
       )}
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
       <div className="justify-items-center hero-section-container absolute z-20">
         <h1 className="hero-title">{hero.title}</h1>
         <div className="hero-subtitle">

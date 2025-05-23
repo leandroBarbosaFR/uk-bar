@@ -4,6 +4,7 @@
 
 .text-marquee-section {
   padding: 150px 0;
+  position: relative;
 }
 
 @media (max-width: 768px) {
@@ -14,5 +15,22 @@
   .container-marquee-section {
     padding: 0px 8px;
     grid-column: 1/12;
+  }
+}
+
+.textMarqueeSection-bg-section {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  transform: skewX(12deg) translateX(-8rem);
+  display: none;
+  background:rgba(51, 72, 62, 0.1)
+}
+
+@media (min-width: 1024px) {
+  .textMarqueeSection-bg-section {
+    display: block;
   }
 }
