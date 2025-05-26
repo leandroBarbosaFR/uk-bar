@@ -23,7 +23,7 @@
 }
 
 body {
-  background: var(--background); /* Use your theme variable instead of hardcoded color */
+  background: #f1f0e7; /* Use your theme variable instead of hardcoded color */
   color: var(--foreground);
   font-family: var(--font-geist-sans);
   overflow: auto;
