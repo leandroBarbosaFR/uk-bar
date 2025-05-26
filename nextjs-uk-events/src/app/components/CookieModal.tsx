@@ -35,7 +35,7 @@ function handleAcceptCookies() {
 }
 if (!showModal || !cookies) return null
   return (
-  <div className="fixed top-4 right-4 z-[9999]">
+  <div className="fixed top-4 right-4 z-[9999]" style={{background: '#f1f0e7'}}>
     <div className="bg-white p-6 rounded-lg max-w-md w-full mx-4 shadow-lg text-center">
       <h1 className="text-xl font-bold mb-4">{cookies.title}</h1>
       <div className="text-sm mb-4">
