@@ -15,9 +15,29 @@ export const linkType = defineType({
       name: 'internal',
       title: 'Internal Link',
       type: 'reference',
-      to: [{type: 'contactPage'}, {type: 'cocktailBarHire'}, {type: 'mobileBarHirePackages'},{type: 'privacyPolicyPage'}, {type: 'termsAndConditionsPage'}],
+      to: [
+        {type: 'contactPage'},
+        {type: 'cocktailBarHire'},
+        {type: 'mobileBarHirePackages'},
+        {type: 'privacyPolicyPage'},
+        {type: 'termsAndConditionsPage'},
+      ],
     }),
-    defineField({name: 'external', title: 'External URL', type: 'url'}),
+    defineField({
+      name: 'external',
+      title: 'External URL',
+      type: 'url',
+    }),
+    defineField({
+      name: 'anchor',
+      title: 'Anchor Link (e.g. #about)',
+      type: 'string',
+      validation: (Rule) =>
+        Rule.custom((val) => {
+          if (val && !val.startsWith('#')) return 'Anchor must start with "#"'
+          return true
+        }),
+    }),
     defineField({
       name: 'openInNewTab',
       title: 'Open in new tab',
@@ -28,9 +48,12 @@ export const linkType = defineType({
   validation: (Rule) =>
     Rule.custom((link) => {
       if (!link) return true
-      if (!link.internal && !link.external) {
-        return 'You must specify either an internal or external link'
+
+      const hasDestination = link.internal || link.external || link.anchor
+      if (!hasDestination) {
+        return 'You must specify an internal, external, or anchor link'
       }
+
       return true
     }),
 })

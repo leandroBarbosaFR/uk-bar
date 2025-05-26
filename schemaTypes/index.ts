@@ -2,6 +2,7 @@ import {aboutType} from './aboutType'
 import {cocktailBarHireType} from './cocktailBarHireType'
 import {contactPageType} from './contactPageType'
 import {cookiesType} from './cookiesType'
+import {embedType} from './embedType'
 import {footerType} from './footerType'
 import {headerType} from './headerType'
 import {heroType} from './heroType'
@@ -21,6 +22,7 @@ export const schemaTypes = [
   cocktailBarHireType,
   contactPageType,
   cookiesType,
+  embedType,
   footerType,
   headerType,
   heroType,

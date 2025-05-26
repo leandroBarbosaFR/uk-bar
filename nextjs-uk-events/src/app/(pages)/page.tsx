@@ -19,10 +19,10 @@ export default async function IndexPage() {
       <AboutSection />
       <WhyUsSection />
       <TextMarqueeSection />
-      <EmbedSection />
       <TextImgSectionRight />
       <TextImgSectionLeft />
       <Carousel />
+      <EmbedSection />
       {/* <Footer /> */}
     </main>
   )

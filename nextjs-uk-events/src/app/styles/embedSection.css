@@ -1,7 +1,8 @@
 .title-section-embed {
   /* font-size: 130px; */
   font-weight: 700;
-  color: #f1f0e7;
+  color: #33483e;
+  line-height: 115px;
 }
 
 .title-wrapper-embed {
@@ -15,12 +16,32 @@
   align-items: center;
   justify-content: center;
   padding: 150px 8px;
+
 }
 
 @media (max-width: 768px) {
   .title-section-embed {
     /* font-size: 35px; */
     font-weight: 700;
-    color: #f1f0e7;
+    color: #33483e;
+     line-height: 40px;
+  }
+}
+
+
+.textMarqueeSection-bg-section {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  transform: skewX(-12deg) translateX(8rem);
+  display: none;
+  background:rgba(51, 72, 62, 0.1)
+}
+
+@media (min-width: 1024px) {
+  .textMarqueeSection-bg-section {
+    display: block;
   }
 }
