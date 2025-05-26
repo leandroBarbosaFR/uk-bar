@@ -1,11 +1,11 @@
 import type {Metadata} from 'next'
-import {Geist, Lora} from 'next/font/google'
+import {Chivo, Lora} from 'next/font/google'
 import './globals.css'
 import Footer from '../app/components/Footer'
 import Header from '../app/components/Header'
 import CookieModal from '../app/components/CookieModal'
 
-const geistSans = Geist({
+const geistSans = Chivo({
   variable: '--font-geist-sans',
   subsets: ['latin'],
 })
