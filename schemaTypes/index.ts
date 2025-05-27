@@ -16,9 +16,12 @@ import {TextImgSectionLeftType} from './TextImgSectionLeftType'
 import {TextImgSectionRightType} from './TextImgSectionRightType'
 import {TextMarqueeSectionType} from './TextMarqueeSectionType'
 import {whyusType} from './whyusType'
+import {carouselSectionType} from './carouselSectionType'
+import {entertainmentType} from './entertainmentType'
 
 export const schemaTypes = [
   aboutType,
+  carouselSectionType,
   cocktailBarHireType,
   contactPageType,
   cookiesType,
@@ -35,5 +38,6 @@ export const schemaTypes = [
   TextImgSectionLeftType,
   TextImgSectionRightType,
   TextMarqueeSectionType,
-  whyusType
+  whyusType,
+  entertainmentType,
 ]

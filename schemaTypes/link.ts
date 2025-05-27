@@ -21,6 +21,7 @@ export const linkType = defineType({
         {type: 'mobileBarHirePackages'},
         {type: 'privacyPolicyPage'},
         {type: 'termsAndConditionsPage'},
+        {type: 'entertainmentPage'},
       ],
     }),
     defineField({
