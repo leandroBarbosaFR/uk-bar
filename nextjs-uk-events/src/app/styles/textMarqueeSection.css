@@ -5,6 +5,7 @@
 .text-marquee-section {
   padding: 150px 0;
   position: relative;
+  background-color: #f1f0e7;
 }
 
 @media (max-width: 768px) {

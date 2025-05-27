@@ -43,7 +43,7 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <main className="flex-grow bg-[transparent] main-contact-page">
+      <main className="flex-grow bg-[#f1f0e7] main-contact-page">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-[#33483e]">

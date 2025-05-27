@@ -2,7 +2,7 @@
   width: 100%;
   overflow: hidden;
   position: relative;
-  background-color: transparent;
+  background-color: #f1f0e7;
   padding: 2rem 0;
   pointer-events: none;
 }
