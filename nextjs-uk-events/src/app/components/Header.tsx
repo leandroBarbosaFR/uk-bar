@@ -82,6 +82,16 @@ export default function Header() {
             </Link>
           )
         })}
+        <div>
+           <Link
+              href={'/contact'}
+              target={'_self'}
+              className="bg-[#f1f0e7] p-2 rounded-sm text-[#33483e] hover:bg-[rgba(241,240,231,0.8)]"
+            >
+           Contact
+            </Link>
+        </div>
+                
       </div>
     </header>
   )
