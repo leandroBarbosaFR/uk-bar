@@ -31,8 +31,51 @@ const CAROUSEL_QUERY = `*[_type == "carouselSection"] {
   }
 }[0]` // Added [0] to get the first carousel section
 
+type CarouselFeature = {
+  _id?: string
+  title: string
+  description: string
+  image: {
+    asset: {
+      _id: string
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+        lqip?: string
+      }
+    }
+    hotspot?: Hotspot
+    crop?: Crop
+  }
+}
+
+type CarouselSection = {
+  _id: string
+  _type: string
+  title: string
+  features: CarouselFeature[]
+}
+
+type Hotspot = {
+  x: number
+  y: number
+  height: number
+  width: number
+}
+
+type Crop = {
+  top: number
+  bottom: number
+  left: number
+  right: number
+}
+
 export default function CurvedCardGallery() {
-  const [carouselData, setCarouselData] = useState(null)
+const [carouselData, setCarouselData] = useState<CarouselSection | null>(null)
+
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -95,7 +138,7 @@ export default function CurvedCardGallery() {
 
         {/* Cards row */}
         <div className="flex flex-wrap cards-container justify-center gap-6 relative z-10">
-          {carouselData.features?.map((feature, index) => (
+          {carouselData.features?.map((feature: CarouselFeature, index: number) => (
             <div
               key={feature._id || index}
               className="relative group w-full sm:w-[350px] md:w-[450px] lg:w-[500px] xl:w-[600px] overflow-hidden"
