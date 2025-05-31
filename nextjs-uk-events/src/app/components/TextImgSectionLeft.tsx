@@ -51,7 +51,7 @@ export default function TextImgSectionLeft() {
         >
           {TextImgSectionLeft.subtitle}
         </h3>
-        <div className="col-start-1 col-end-12 row-start-3 lg:col-start-2 lg:col-end-7 lg:row-start-3 text-[#33483e] text-1xl sm:text-4xl md:text-4xl lg:text-[24px] item-description">
+        <div className="col-start-1 col-end-12 row-start-3 lg:col-start-2 lg:col-end-7 lg:row-start-3 text-[#33483e] text-1xl sm:text-4xl md:text-4xl lg:text-[16px] item-description">
           <PortableText value={TextImgSectionLeft.body} />
         </div>
         <div className="col-start-2 col-end-11 row-start-4 lg:col-start-7 lg:col-end-12 lg:row-start-3">

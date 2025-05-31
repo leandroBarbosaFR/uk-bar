@@ -56,7 +56,7 @@ export default function Contact() {
             )}
           </div>
 
-          <div className="bg-[#33483e] p-6 md:p-8">
+          <div className="bg-[#33483e] p-6 md:p-8 rounded-xl">
             <ContactForm />
           </div>
 
