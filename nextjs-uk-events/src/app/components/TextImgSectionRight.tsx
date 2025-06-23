@@ -40,7 +40,7 @@ export default function TextImgSectionRight() {
   if (!TextImgSectionRight) return null // or show a loader, placeholder, etc.
 
   return (
-    <section className="right-image-section">
+    <section className="right-image-section bg-[#f1f0e7]">
       <div className="gap-8 grid grid-cols-12">
         <h1
           className=" row-start-1 text-4xl sm:text-7xl text-center text-[#33483e] md:text-5xl lg:text-[130px] font-bold "

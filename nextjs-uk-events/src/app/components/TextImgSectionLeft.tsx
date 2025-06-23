@@ -37,7 +37,7 @@ export default function TextImgSectionLeft() {
   if (!TextImgSectionLeft) return null // or show a loader, placeholder, etc.
 
   return (
-    <section className="left-image-section">
+    <section className="left-image-section bg-[#f1f0e7]">
       <div className="gap-8 grid grid-cols-12">
         <h1
           className="row-start-2 text-4xl sm:text-7xl md:text-8xl lg:text-[200px] font-bold whitespace-normal sm:whitespace-nowrap"
