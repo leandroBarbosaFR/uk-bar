@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {MailCheck} from 'lucide-react'
 
 type FormData = {
   name: string
@@ -29,8 +30,15 @@ const ContactForm = () => {
     setSubmitError('')
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(formData),
+      })
+
+      if (!res.ok) {
+        throw new Error('Failed to send email')
+      }
 
       setSubmitSuccess(true)
       setFormData({name: '', email: '', subject: '', message: ''})
@@ -45,12 +53,14 @@ const ContactForm = () => {
   if (submitSuccess) {
     return (
       <div className="text-center py-8">
-        <div className="text-green-600 text-5xl mb-4">✓</div>
-        <h3 className="text-2xl font-medium text-gray-900">Thank you for your message!</h3>
-        <p className="mt-2 text-gray-600">We will get back to you as soon as possible.</p>
+        <div className="text-5xl mb-4 flex justify-center">
+          <MailCheck color={'#f1f0e7'} />
+        </div>
+        <h3 className="text-2xl font-medium text-white">Thank you for your message!</h3>
+        <p className="mt-2 text-white">We will get back to you as soon as possible.</p>
         <button
           onClick={() => setSubmitSuccess(false)}
-          className="mt-6 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 "
+          className="mt-6 px-6 py-2 bg-[#f1f0e7] text-[#33483e] rounded-md "
         >
           Send another message
         </button>
@@ -72,7 +82,7 @@ const ContactForm = () => {
             value={formData[field as keyof FormData]}
             onChange={handleChange}
             required
-            className="mt-1 text-[#f1f0e7] block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none "
+            className="mt-1 text-[#33483e] block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none "
           />
         </div>
       ))}
@@ -88,7 +98,7 @@ const ContactForm = () => {
           value={formData.message}
           onChange={handleChange}
           required
-          className="mt-1 block w-full text-[#f1f0e7] border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none "
+          className="mt-1 block w-full text-[#33483e] border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none "
         />
       </div>
 

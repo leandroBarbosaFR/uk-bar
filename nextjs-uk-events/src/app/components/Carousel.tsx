@@ -74,7 +74,7 @@ type Crop = {
 }
 
 export default function CurvedCardGallery() {
-const [carouselData, setCarouselData] = useState<CarouselSection | null>(null)
+  const [carouselData, setCarouselData] = useState<CarouselSection | null>(null)
 
   const [loading, setLoading] = useState(true)
 
@@ -102,7 +102,7 @@ const [carouselData, setCarouselData] = useState<CarouselSection | null>(null)
           </div>
         </div>
         <div className="curved-wrapper bg-[#33483e] relative text-white">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16">Loading...</h2>
+          {/* <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16">Loading...</h2> */}
         </div>
       </section>
     )
@@ -137,7 +137,7 @@ const [carouselData, setCarouselData] = useState<CarouselSection | null>(null)
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16">{carouselData.title}</h2>
 
         {/* Cards row */}
-        <div className="flex flex-wrap cards-container justify-center gap-6 relative z-10">
+        <div className="flex flex-wrap cards-container justify-center gap-6 relative">
           {carouselData.features?.map((feature: CarouselFeature, index: number) => (
             <div
               key={feature._id || index}

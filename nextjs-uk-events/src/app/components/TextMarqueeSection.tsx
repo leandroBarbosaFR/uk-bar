@@ -77,7 +77,7 @@ const TextMarqueeSection = () => {
 
   return (
     <section className="grid grid-cols-12 gap-8 p-10 items-center text-marquee-section">
-      <div className='textMarqueeSection-bg-section'></div>
+      <div className="textMarqueeSection-bg-section"></div>
       {/* Text content */}
       <div className=" container-marquee-section col-span-12 md:col-start-2 md:col-end-7">
         {title && <h2 className=" text-[#33483e] text-3xl font-bold mb-4">{title}</h2>}
@@ -97,7 +97,7 @@ const TextMarqueeSection = () => {
       </div>
 
       {/* Marquee content */}
-      <div className="col-span-12 md:col-span-6 space-y-6">
+      <div className="col-span-12 md:col-span-6 space-y-6 items-wrapper-text-marquee">
         {topMarqueeImages && topMarqueeImages.length > 0 && (
           <Marquee speed={20} gradient={false} direction="left">
             {topMarqueeImages.map((image: MarqueeImage, index: number) => (

@@ -5,6 +5,7 @@
   background-color: #f1f0e7;
   padding: 2rem 0;
   pointer-events: none;
+  z-index: 0;
 }
 
 .custom-marquee {

@@ -8,6 +8,10 @@
   background-color: #f1f0e7;
 }
 
+.items-wrapper-text-marquee {
+  z-index: 0;
+}
+
 @media (max-width: 768px) {
   .text-marquee-section {
     padding: 50px 0;
@@ -27,7 +31,7 @@
   height: 100%;
   transform: skewX(12deg) translateX(-8rem);
   display: none;
-  background:rgba(51, 72, 62, 0.1)
+  background: rgba(51, 72, 62, 0.1);
 }
 
 @media (min-width: 1024px) {

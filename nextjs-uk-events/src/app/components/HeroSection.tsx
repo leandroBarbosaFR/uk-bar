@@ -6,11 +6,11 @@ import {PortableText} from '@portabletext/react'
 import type {PortableTextBlock} from '@portabletext/types'
 import {client} from '@/sanity/client'
 import {urlFor} from '../../lib/sanityImage'
-import gsap from 'gsap'
-import {ScrollTrigger} from 'gsap/dist/ScrollTrigger'
+// import gsap from 'gsap'
+// import {ScrollTrigger} from 'gsap/dist/ScrollTrigger'
 import '../styles/heroSection.css'
 
-gsap.registerPlugin(ScrollTrigger)
+// gsap.registerPlugin(ScrollTrigger)
 
 const HERO_QUERY = `*[_type == "hero"][0]{ _id, title, subtitle, image, body }`
 
@@ -39,29 +39,29 @@ export default function HeroSection() {
     fetchHero()
   }, [])
 
-  useEffect(() => {
-    if (!containerRef.current) return
-    if (!hero) return
+  // useEffect(() => {
+  //   if (!containerRef.current) return
+  //   if (!hero) return
 
-    const title = containerRef.current.querySelector('.hero-title')
-    const subtitle = containerRef.current.querySelector('.hero-subtitle')
-    const body = containerRef.current.querySelector('.hero-body')
+  //   const title = containerRef.current.querySelector('.hero-title')
+  //   const subtitle = containerRef.current.querySelector('.hero-subtitle')
+  //   const body = containerRef.current.querySelector('.hero-body')
 
-    const ctx = gsap.context(() => {
-      gsap.to([title, subtitle, body], {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-        opacity: 0,
-        ease: 'none',
-      })
-    }, containerRef)
+  //   const ctx = gsap.context(() => {
+  //     gsap.to([title, subtitle, body], {
+  //       scrollTrigger: {
+  //         trigger: containerRef.current,
+  //         start: 'top top',
+  //         end: 'bottom top',
+  //         scrub: true,
+  //       },
+  //       opacity: 0,
+  //       ease: 'none',
+  //     })
+  //   }, containerRef)
 
-    return () => ctx.revert()
-  }, [hero])
+  //   return () => ctx.revert()
+  // }, [hero])
 
   if (!hero) return null // or loading spinner
 
@@ -70,18 +70,17 @@ export default function HeroSection() {
       {/* Background Image */}
       {hero.image && (
         <Image
-          src={urlFor(hero.image).width(7172).url()}
+          src={urlFor(hero.image).width(1600).quality(75).format('webp').url()}
           alt="Hero image"
           fill
           style={{objectFit: 'cover'}}
-          quality={100}
           priority
         />
       )}
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
-      <div className="justify-items-center hero-section-container absolute z-20">
+      <div className="justify-items-center hero-section-container absolute">
         <h1 className="hero-title">{hero.title}</h1>
         <div className="hero-subtitle">
           <h3>{hero.subtitle}</h3>

@@ -65,12 +65,12 @@ export default function MobileBarHirePackages() {
             )}
             {data.image?.asset?.url && (
               <Image
-                width={7172}
-                height={7172}
-                src={urlFor(data.image).width(7172).url()}
+                src={urlFor(data.image).width(1600).height(900).quality(75).format('webp').url()}
                 alt="Hero image"
                 // style={{objectFit: 'cover', position: 'unset'}}
-                quality={100}
+                width={1600}
+                height={900}
+                priority
               />
             )}
           </div>
