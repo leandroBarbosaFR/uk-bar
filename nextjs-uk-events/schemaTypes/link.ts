@@ -22,6 +22,8 @@ export const linkType = defineType({
         {type: 'privacyPolicyPage'},
         {type: 'termsAndConditionsPage'},
         {type: 'entertainmentPage'},
+        {type: 'aboutUsPage'},
+        {type: 'masterclassPage'},
       ],
     }),
     defineField({

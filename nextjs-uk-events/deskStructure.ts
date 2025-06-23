@@ -1,7 +1,7 @@
-import {StructureBuilder} from 'sanity/structure'
-import {Folder, LayoutTemplate, FileText} from 'lucide-react'
+import { StructureBuilder } from 'sanity/structure'
+import { Folder, LayoutTemplate, FileText } from 'lucide-react'
 
-export default (S: StructureBuilder) =>
+const structure = (S: StructureBuilder) =>
   S.list()
     .title('Content')
     .items([
@@ -17,6 +17,8 @@ export default (S: StructureBuilder) =>
               S.documentTypeListItem('cocktailBarHire').title('Cocktail Bar Hire Page'),
               S.documentTypeListItem('mobileBarHirePackages').title('Mobile Bar Hire Packages'),
               S.documentTypeListItem('entertainmentPage').title('Entertainment Page'),
+              S.documentTypeListItem('masterclassPage').title('Master Class Page'),
+              S.documentTypeListItem('aboutUsPage').title('About Page'),
               S.documentTypeListItem('privacyPolicyPage').title('Privacy Policy'),
               S.documentTypeListItem('termsAndConditionsPage').title('Terms & Conditions'),
             ]),
@@ -60,3 +62,5 @@ export default (S: StructureBuilder) =>
             ]),
         ),
     ])
+
+export default structure

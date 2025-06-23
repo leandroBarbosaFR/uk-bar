@@ -18,6 +18,8 @@ import {TextMarqueeSectionType} from './TextMarqueeSectionType'
 import {whyusType} from './whyusType'
 import {carouselSectionType} from './carouselSectionType'
 import {entertainmentType} from './entertainmentType'
+import {masterClassType} from './masterClassType'
+import {aboutUsType} from './aboutUsType'
 
 export const schemaTypes = [
   aboutType,
@@ -40,4 +42,6 @@ export const schemaTypes = [
   TextMarqueeSectionType,
   whyusType,
   entertainmentType,
+  masterClassType,
+  aboutUsType,
 ]

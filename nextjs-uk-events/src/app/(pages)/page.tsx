@@ -9,6 +9,7 @@ import EmbedSection from '../components/EmbedSection'
 import TextImgSectionLeft from '../components/TextImgSectionLeft'
 import TextImgSectionRight from '../components/TextImgSectionRight'
 import Carousel from '../components/Carousel'
+export const dynamic = 'force-dynamic'
 
 export default async function IndexPage() {
   return (
