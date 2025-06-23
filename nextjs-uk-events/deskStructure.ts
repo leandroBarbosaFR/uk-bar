@@ -19,7 +19,6 @@ export default (S: StructureBuilder) =>
               S.documentTypeListItem('entertainmentPage').title('Entertainment Page'),
               S.documentTypeListItem('privacyPolicyPage').title('Privacy Policy'),
               S.documentTypeListItem('termsAndConditionsPage').title('Terms & Conditions'),
-              S.documentTypeListItem('post').title('Blog Posts'),
             ]),
         ),
 
@@ -34,14 +33,14 @@ export default (S: StructureBuilder) =>
             .title('Sections')
             .items([
               S.documentTypeListItem('hero').title('Hero Section'),
-              S.documentTypeListItem('carouselSection').title('Carousel Section'),
+              S.documentTypeListItem('marqueeSection').title('Marquee Section'),
               S.documentTypeListItem('about').title('About Section'),
               S.documentTypeListItem('whyus').title('Why Us Section'),
-              S.documentTypeListItem('embed').title('Video Embed Section'),
-              S.documentTypeListItem('TextImgSectionLeft').title('Text + Image Left'),
-              S.documentTypeListItem('TextImgSectionRight').title('Text + Image Right'),
               S.documentTypeListItem('TextMarqueeSection').title('Text Marquee Section'),
-              S.documentTypeListItem('marqueeSection').title('Marquee Section'),
+              S.documentTypeListItem('TextImgSectionRight').title('Text + Image Right'),
+              S.documentTypeListItem('TextImgSectionLeft').title('Text + Image Left'),
+              S.documentTypeListItem('carouselSection').title('Carousel Section'),
+              S.documentTypeListItem('embed').title('Video Embed Section'),
             ]),
         ),
 
