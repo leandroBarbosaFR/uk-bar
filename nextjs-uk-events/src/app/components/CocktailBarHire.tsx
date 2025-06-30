@@ -64,14 +64,16 @@ export default function CocktailBarHire() {
               <p>{data.body}</p>
             )}
             {data.image?.asset?.url && (
-              <Image
-                width={7172}
-                height={7172}
-                src={urlFor(data.image).width(7172).url()}
-                alt="Hero image"
-                // style={{objectFit: 'cover', position: 'unset'}}
-                quality={100}
-              />
+              <div className="image-wrapper-cocktail">
+                <Image
+                  width={1200}
+                  height={800}
+                  src={urlFor(data.image).width(1200).url()}
+                  alt={data.image?.alt || 'Cocktail bar image'}
+                  className="cocktail-hero-image"
+                  priority
+                />
+              </div>
             )}
           </div>
         </div>

@@ -5,23 +5,8 @@
 :root {
   --urban-green: #33483e;
   --urban-green-opacity: rgba(51, 72, 62, 0.8);
-  --urban-white: #fafafa;
+  --urban-white: #f1f0e7;
 }
-
-body {
-  font-family: var(--font-geist-sans, sans-serif);
-  overflow: auto;
-  margin: 0px;
-  padding: 0px;
-  -webkit-font-smoothing: antialiased;
-  position: relative;
-}
-
-main {
-  overflow: hidden;
-}
-
-
 
 @layer base {
   :root {
@@ -51,6 +36,7 @@ main {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -77,15 +63,53 @@ main {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
 
-
-
-@layer base {
   * {
     @apply border-border;
+    box-sizing: border-box;
   }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-geist-sans, sans-serif);
+  }
+
   body {
     @apply bg-background text-foreground;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    overscroll-behavior: none;
+    position: relative;
+  }
+
+  main {
+    overflow: hidden;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
   }
 }

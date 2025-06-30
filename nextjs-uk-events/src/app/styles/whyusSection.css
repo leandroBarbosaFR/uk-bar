@@ -7,3 +7,8 @@
     padding: 0 8px;
   }
 }
+
+.whyus-img {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}

@@ -31,6 +31,13 @@ export const contactPageType = defineType({
       of: [{type: 'block'}],
     }),
     defineField({
+      name: 'infosTitle',
+      title: 'Title',
+      type: 'string',
+      initialValue: 'How to Reach Us:',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'emailLabel',
       title: 'Email Label',
       type: 'string',

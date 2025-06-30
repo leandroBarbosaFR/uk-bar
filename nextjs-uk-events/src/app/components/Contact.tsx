@@ -5,6 +5,8 @@ import '../styles/contact.css'
 import {PortableText} from '@portabletext/react'
 import type {PortableTextBlock} from '@portabletext/types'
 import {client} from '@/sanity/client'
+import {UserPlus, Phone, Mail} from 'lucide-react'
+import Link from 'next/link'
 
 const CONTACT_QUERY = `*[_type == "contactPage"][0]{
   title,
@@ -14,7 +16,8 @@ const CONTACT_QUERY = `*[_type == "contactPage"][0]{
   phoneLabel,
   phone,
   addressLabel,
-  address
+  address,
+  infosTitle
 }`
 
 export default function Contact() {
@@ -27,6 +30,7 @@ export default function Contact() {
     phone?: string
     addressLabel?: string
     address?: string
+    infosTitle?: string
   }
 
   const [contactData, setContactData] = useState<ContactPage | null>(null)
@@ -59,22 +63,41 @@ export default function Contact() {
           <div className="bg-[#33483e] p-6 md:p-8 rounded-xl">
             <ContactForm />
           </div>
+          <div className="w-full flex justify-center">
+            <h1 className="text-xl mt-8 sm:text-2xl md:text-4xl lg:text-5xl font-bold text-center w-full">
+              {contactData.infosTitle || 'How to Reach Us:'}
+            </h1>
+          </div>
 
           <div className="mt-12 grid md:grid-cols-3 gap-6 text-center">
-            <div className="bg-[transparent] p-6 ">
-              <h3 className="font-medium text-lg mb-2">{contactData.addressLabel || 'Visit Us'}</h3>
-
-              <p className="text-gray-600">{contactData.address}</p>
+            <div className="bg-transparent p-6 text-left flex justify-center md:justify-start">
+              <Link href="/" className="font-medium text-lg flex-col mb-2 flex items-center gap-2">
+                <UserPlus />
+                {contactData.addressLabel || 'Visit Us'}
+                <p className="text-gray-600">{contactData.address}</p>
+              </Link>
             </div>
 
-            <div className="bg-[transparent] p-6">
-              <h3 className="font-medium text-lg mb-2">{contactData.phoneLabel || 'Call Us'}</h3>
-              <p className="text-gray-600">{contactData.phone}</p>
+            <div className="bg-transparent p-6 text-left flex justify-center md:justify-start">
+              <Link
+                href="tel:+4407731389038"
+                className="font-medium text-lg flex-col mb-2 flex items-center gap-2"
+              >
+                <Phone />
+                {contactData.phoneLabel || 'Call Us'}
+                <p className="text-gray-600">{contactData.phone}</p>
+              </Link>
             </div>
 
-            <div className="bg-[transparent] p-6">
-              <h3 className="font-medium text-lg mb-2">{contactData.emailLabel || 'Email Us'}</h3>
-              <p className="text-gray-600">{contactData.email}</p>
+            <div className="bg-transparent p-6 text-left flex justify-center md:justify-start">
+              <Link
+                href="mailto:info@sambabarevents.co.uk"
+                className="font-medium text-lg flex-col mb-2 flex items-center gap-2"
+              >
+                <Mail />
+                {contactData.emailLabel || 'Email Us'}
+                <p className="text-gray-600">{contactData.email}</p>
+              </Link>
             </div>
           </div>
         </div>

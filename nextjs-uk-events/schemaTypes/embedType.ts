@@ -16,8 +16,9 @@ export const embedType = defineType({
       type: 'string',
       options: {
         list: [
-          { title: 'YouTube', value: 'youtube' },
-          { title: 'Local File', value: 'local' },
+          {title: 'YouTube', value: 'youtube'},
+          {title: 'Vimeo', value: 'vimeo'},
+          {title: 'Local File', value: 'local'},
         ],
         layout: 'radio',
       },
@@ -25,8 +26,16 @@ export const embedType = defineType({
     defineField({
       name: 'youtubeUrl',
       title: 'YouTube URL',
-      type: 'url',
-      hidden: ({ parent }) => parent?.videoType !== 'youtube',
+      type: 'string',
+      description: 'Example: https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+      hidden: ({parent}) => parent?.videoType !== 'youtube',
+    }),
+    defineField({
+      name: 'vimeoUrl',
+      title: 'Vimeo URL',
+      type: 'string',
+      description: 'Example: https://vimeo.com/123456789',
+      hidden: ({parent}) => parent?.videoType !== 'vimeo',
     }),
     defineField({
       name: 'videoFile',
@@ -35,7 +44,7 @@ export const embedType = defineType({
       options: {
         accept: 'video/*',
       },
-      hidden: ({ parent }) => parent?.videoType !== 'local',
+      hidden: ({parent}) => parent?.videoType !== 'local',
     }),
   ],
 })

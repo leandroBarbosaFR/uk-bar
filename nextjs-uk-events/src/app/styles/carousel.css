@@ -2,8 +2,7 @@
   padding: 50px 0;
 }
 .carousel-section {
-  padding: 0;
-  margin: 100px 0 0 0;
+  padding: 100px 0;
 }
 
 .svg-title-wrap {
@@ -44,4 +43,8 @@
   .curved-wrapper {
     padding: 20px 0;
   }
+}
+
+.feature-image {
+  object-fit: cover;
 }

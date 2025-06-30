@@ -1,4 +1,6 @@
 import React from 'react'
+import Image from 'next/image'
+import {urlFor} from '../../lib/sanityImage'
 import {
   PortableText,
   type PortableTextReactComponents,
@@ -28,6 +30,22 @@ const portableTextComponents: Partial<PortableTextReactComponents> = {
   listItem: {
     bullet: ({children}) => <li className="mb-1">{children}</li>,
     number: ({children}) => <li className="mb-1">{children}</li>,
+  },
+  types: {
+    image: ({value}) => {
+      if (!value?.asset?._ref) return null
+      return (
+        <div className="my-6 flex justify-center">
+          <Image
+            src={urlFor(value).width(800).height(500).url()} // Define both width and height
+            alt={value.alt || 'Image'}
+            width={800} // Setting width
+            height={500} // Setting height
+            className="rounded-lg"
+          />
+        </div>
+      )
+    },
   },
 }
 

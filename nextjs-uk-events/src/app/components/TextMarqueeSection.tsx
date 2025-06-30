@@ -103,7 +103,7 @@ const TextMarqueeSection = () => {
             {topMarqueeImages.map((image: MarqueeImage, index: number) => (
               <div key={`top-${index}`} className="mr-4 rounded overflow-hidden">
                 <Image
-                  src={urlFor(image.asset).width(600).height(400).quality(100).auto('format').url()}
+                  src={urlFor(image.asset).width(600).height(400).quality(75).auto('format').url()}
                   alt={image.alt || `Image ${index + 1}`}
                   width={300}
                   height={200}
@@ -116,10 +116,10 @@ const TextMarqueeSection = () => {
 
         {bottomMarqueeImages && bottomMarqueeImages.length > 0 && (
           <Marquee speed={20} gradient={false} direction="right">
-            {topMarqueeImages.map((image: MarqueeImage, index: number) => (
+            {bottomMarqueeImages.map((image: MarqueeImage, index: number) => (
               <div key={`top-${index}`} className="mr-4 rounded overflow-hidden">
                 <Image
-                  src={urlFor(image.asset).width(600).height(400).quality(100).auto('format').url()}
+                  src={urlFor(image.asset).width(600).height(400).quality(75).auto('format').url()}
                   alt={image.alt || `Image ${index + 1}`}
                   width={300}
                   height={200}

@@ -51,18 +51,21 @@ export default function MasterClass() {
         >
           {MasterClass.subtitle}
         </h3>
-        <div className="col-start-1 col-end-12 row-start-4 lg:col-start-7 lg:col-end-12 lg:row-start-3 text-[#33483e] text-1xl sm:text-4xl md:text-4xl lg:text-[16px] item-description">
+        <div className="col-start-1 col-end-12 row-start-4 lg:col-start-7 lg:col-end-12 lg:row-start-3 text-[#33483e] text-lg sm:text-lg md:text-base lg:text-[16px] item-description">
           <PortableText value={MasterClass.body} />
         </div>
         <div className="col-start-2 col-end-11 row-start-3 lg:col-start-2 lg:col-end-7 lg:row-start-3">
           {MasterClass.image && (
-            <Image
-              width={7172}
-              height={7172}
-              src={urlFor(MasterClass.image).width(7172).url()}
-              alt="Hero image"
-              quality={100}
-            />
+            <div className="masterclass-image-wrapper">
+              <Image
+                width={1200}
+                height={800}
+                src={urlFor(MasterClass.image).width(1200).url()}
+                alt={MasterClass.title || 'Masterclass image'}
+                className="masterclass-image"
+                priority
+              />
+            </div>
           )}
         </div>
       </div>

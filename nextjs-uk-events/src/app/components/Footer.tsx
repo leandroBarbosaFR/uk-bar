@@ -69,7 +69,11 @@ export default async function Footer() {
           <div className="footer-links">
             <span>
               © {new Date().getFullYear()} Samba Bar Events. All rights reserved | Designed and
-              built by <a href='https://www.1367studio.com' target='_blank'>1367 Studio</a>.
+              built by{' '}
+              <a href="https://www.1367studio.com" target="_blank">
+                1367 Studio
+              </a>
+              .
             </span>
           </div>
         </div>

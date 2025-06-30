@@ -57,13 +57,15 @@ export default function MarqueeComponent() {
           <div key={index} className="marquee-item-container">
             <div className="marquee-word">{word}</div>
             <div className="marquee-image">
-              <Image
-                src={images[index % images.length]}
-                alt={`Marquee image ${index}`}
-                width={300}
-                height={300}
-                className="img"
-              />
+              <div className="marquee-image-wrapper">
+                <Image
+                  src={images[index % images.length]}
+                  alt={`Marquee image ${index}`}
+                  width={300}
+                  height={300}
+                  className="marquee-img"
+                />
+              </div>
             </div>
           </div>
         ))}

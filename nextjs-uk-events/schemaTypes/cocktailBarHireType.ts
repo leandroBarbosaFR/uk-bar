@@ -31,7 +31,7 @@ export const cocktailBarHireType = defineType({
     defineField({
       name: 'body',
       type: 'array',
-      of: [{type: 'block'}],
+      of: [{type: 'block'}, {type: 'image'}],
     }),
     defineField({
       name: 'image',

@@ -92,11 +92,10 @@ export default function AboutSection() {
 
   return (
     <section id="AboutUs" ref={sectionRef} className="aboutPageSection">
-      <div className='about-bg-section'></div>
+      <div className="about-bg-section"></div>
       {about && (
         <div className="container px-0 md:px-8 ">
           <div className="aboutPageGrid grid grid-cols-12 gap-6">
-
             <div className="aboutPageSubtitle">
               <h3 ref={subtitleRef}>{about.subtitle}</h3>
             </div>
@@ -116,9 +115,10 @@ export default function AboutSection() {
                 <Image
                   src={urlFor(about.leftImage).width(1200).url()}
                   alt="Left image"
-                  layout="responsive"
                   width={1200}
                   height={600}
+                  className="about-image"
+                  priority
                 />
               )}
             </div>
@@ -133,9 +133,9 @@ export default function AboutSection() {
                   <Image
                     src={urlFor(about.middleImage).width(1200).url()}
                     alt="Middle image"
-                    layout="responsive"
                     width={1200}
                     height={600}
+                    className="about-image"
                   />
                 )}
               </div>
@@ -149,9 +149,9 @@ export default function AboutSection() {
                   <Image
                     src={urlFor(about.rightImage).width(1200).url()}
                     alt="Right image"
-                    layout="responsive"
                     width={1200}
                     height={600}
+                    className="about-image"
                   />
                 )}
               </div>

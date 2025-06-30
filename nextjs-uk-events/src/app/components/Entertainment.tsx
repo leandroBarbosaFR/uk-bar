@@ -51,18 +51,21 @@ export default function Entertainment() {
         >
           {Entertainment.subtitle}
         </h3>
-        <div className="col-start-1 col-end-12 row-start-4 lg:col-start-7 lg:col-end-12 lg:row-start-3 text-[#33483e] text-1xl sm:text-4xl md:text-4xl lg:text-[16px] item-description">
+        <div className="col-start-1 col-end-12 row-start-4 lg:col-start-7 lg:col-end-12 lg:row-start-3 text-[#33483e] text-lg sm:text-lg md:text-base lg:text-[16px] item-description">
           <PortableText value={Entertainment.body} />
         </div>
         <div className="col-start-2 col-end-11 row-start-3 lg:col-start-2 lg:col-end-7 lg:row-start-3">
           {Entertainment.image && (
-            <Image
-              width={7172}
-              height={7172}
-              src={urlFor(Entertainment.image).width(7172).url()}
-              alt="Hero image"
-              quality={100}
-            />
+            <div className="image-wrapper-entertainment">
+              <Image
+                width={1200}
+                height={800}
+                src={urlFor(Entertainment.image).width(1200).url()}
+                alt="Entertainment image"
+                className="entertainment-hero-image"
+                quality={100}
+              />
+            </div>
           )}
         </div>
       </div>

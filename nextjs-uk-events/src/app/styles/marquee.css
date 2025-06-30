@@ -19,6 +19,26 @@
   margin: 0 3rem;
 }
 
+.marquee-img {
+  height: 200px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .marquee-img {
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .marquee-img {
+    height: 100px;
+  }
+}
+
 .marquee-word {
   font-size: 200px;
   font-weight: 800;
@@ -57,9 +77,9 @@
   .marquee-item-container {
     margin: 0 1.5rem;
   }
+}
 
-  .img {
-    object-fit: contain;
-    height: 160px;
-  }
+.marquee-image-wrapper {
+  width: 100%;
+  max-width: 250px;
 }

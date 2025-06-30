@@ -16,7 +16,6 @@
   align-items: center;
   justify-content: center;
   padding: 150px 8px;
-
 }
 
 @media (max-width: 768px) {
@@ -24,10 +23,13 @@
     /* font-size: 35px; */
     font-weight: 700;
     color: #33483e;
-     line-height: 40px;
+    line-height: 63px;
+  }
+
+  #embed-section {
+    padding: 100px 8px;
   }
 }
-
 
 .textMarqueeSection-bg-section {
   position: absolute;
@@ -37,7 +39,7 @@
   height: 100%;
   transform: skewX(-12deg) translateX(8rem);
   display: none;
-  background:rgba(51, 72, 62, 0.1)
+  background: rgba(51, 72, 62, 0.1);
 }
 
 @media (min-width: 1024px) {

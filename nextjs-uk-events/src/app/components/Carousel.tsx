@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import {useEffect, useState} from 'react'
 import '../styles/carousel.css'
-import LogoSvg from '../components/LogoSvgBarPackages'
 import {client} from '@/sanity/client'
 
 const CAROUSEL_QUERY = `*[_type == "carouselSection"] {
@@ -95,11 +94,9 @@ export default function CurvedCardGallery() {
 
   if (loading) {
     return (
-      <section className="bg-[transparent] carousel-section">
+      <section className="bg-[#f1f0e7] carousel-section">
         <div className="title-wraper-gallery">
-          <div className="flex justify-center svg-title-wrap">
-            <LogoSvg />
-          </div>
+          <div className="flex justify-center svg-title-wrap"></div>
         </div>
         <div className="curved-wrapper bg-[#33483e] relative text-white">
           {/* <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16">Loading...</h2> */}
@@ -110,11 +107,9 @@ export default function CurvedCardGallery() {
 
   if (!carouselData) {
     return (
-      <section className="bg-[transparent] carousel-section">
+      <section className="bg-[#f1f0e7] carousel-section">
         <div className="title-wraper-gallery">
-          <div className="flex justify-center svg-title-wrap">
-            <LogoSvg />
-          </div>
+          <div className="flex justify-center svg-title-wrap"></div>
         </div>
         <div className="curved-wrapper bg-[#33483e] relative text-white">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16">
@@ -126,11 +121,9 @@ export default function CurvedCardGallery() {
   }
 
   return (
-    <section className="bg-[transparent] carousel-section">
+    <section className="bg-[#f1f0e7] carousel-section">
       <div className="title-wraper-gallery">
-        <div className="flex justify-center svg-title-wrap">
-          <LogoSvg />
-        </div>
+        <div className="flex justify-center svg-title-wrap"></div>
       </div>
       <div className="curved-wrapper bg-[#33483e] relative text-white">
         {/* Section Title */}
@@ -149,9 +142,10 @@ export default function CurvedCardGallery() {
                   src={feature.image?.asset?.url || '/placeholder-image.jpg'}
                   alt={feature.title || 'Feature image'}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="feature-image"
+                  priority={index === 0}
                 />
-                {/* Hover overlay with title and description */}
+                {/* Hover overlay */}
                 <div className="absolute inset-0 bg-[#33483e] bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <h3 className="text-xl font-semibold">{feature.title}</h3>
                   <p className="text-sm mt-1">{feature.description}</p>

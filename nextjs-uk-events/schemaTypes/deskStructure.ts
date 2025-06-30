@@ -1,7 +1,7 @@
 // deskStructure.ts
 import {StructureBuilder} from 'sanity/structure'
 
-export default (S: StructureBuilder) =>
+const deskStructure = (S: StructureBuilder) =>
   S.list()
     .title('Content')
     .items([
@@ -13,6 +13,7 @@ export default (S: StructureBuilder) =>
             .items([
               S.documentTypeListItem('contactPage').title('Contact Page'),
               S.documentTypeListItem('cocktailBarHirePage').title('Cocktail Bar Hire Page'),
+              S.documentTypeListItem('corporateBarHire').title('Corporate Bar Hire Page'),
               S.documentTypeListItem('mobileBarHirePackagesPage').title('Mobile Bar Hire Packages'),
               S.documentTypeListItem('entertainmentPage').title('Entertainment Page'),
               S.documentTypeListItem('privacyPolicyPage').title('Privacy Policy'),
@@ -55,3 +56,5 @@ export default (S: StructureBuilder) =>
             ]),
         ),
     ])
+
+export default deskStructure

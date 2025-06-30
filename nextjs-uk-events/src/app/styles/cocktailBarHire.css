@@ -2,3 +2,20 @@
   padding: 200px 0 0 0;
   color: var(--urban-green);
 }
+
+.image-wrapper-cocktail {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  aspect-ratio: 3 / 2; /* ou 4/3 si tu préfères */
+  position: relative;
+}
+
+.cocktail-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px; /* optionnel */
+  display: block;
+}

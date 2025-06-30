@@ -1,24 +1,33 @@
 .aboutPageSection {
-  padding: 100px 0;
   position: relative;
+  overflow: hidden;
   background-color: #f1f0e7;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  min-height: 60vh;
 }
 
 .about-bg-section {
   position: absolute;
   top: 0;
-  right: auto;
+  left: 0;
   width: 50%;
   height: 100%;
-  /* transform: skewX(12deg) translateX(-8rem); original */
-  transform: skewX(46deg)translateX(-32rem);
-  display: none;
-  background:rgba(51, 72, 62, 0.1)
+  transform: skewX(46deg) translateX(-32rem);
+  background: rgba(51, 72, 62, 0.1);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease-in-out,
+    visibility 0.3s ease-in-out;
 }
 
 @media (min-width: 1024px) {
   .about-bg-section {
-    display: block;
+    opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -78,4 +87,16 @@
   .aboutPageSection {
     padding: 50px 0;
   }
+}
+
+.about-image {
+  aspect-ratio: 2 / 1;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.aboutPageGrid {
+  position: relative;
+  z-index: 1;
 }

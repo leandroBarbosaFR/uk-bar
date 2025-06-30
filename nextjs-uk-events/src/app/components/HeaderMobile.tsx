@@ -3,15 +3,22 @@ import React, {useState} from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import NavDrawer from './NavDrawer'
-import Logo from '../../../public/assets/SambaBarLogo.png'
 import '../styles/headerMobile.css'
+import Logo from '../../../public/assets/SambaBarLogo.png'
 
 interface NavLink {
   _key: string
-  type: 'internal' | 'external'
-  anchor: string
   text: string
   blank?: boolean
+  internal?: {
+    _type: string
+    slug: string
+  }
+  external?: string
+  options?: {
+    list?: {title: string}[]
+  }
+  internalLinks?: {_id: string; title: string; slug?: {current: string}}[] | null
 }
 
 interface HeaderMobileProps {
@@ -27,7 +34,14 @@ export default function HeaderMobile({links}: HeaderMobileProps) {
     <header className="headerMobile justify-between">
       {' '}
       <Link href="/">
-        <Image src={Logo} alt="Logo" width={60} height={60} />
+        <Image
+          src={Logo}
+          alt="Samba Bar Logo"
+          width={80}
+          height={80}
+          priority
+          fetchPriority="high"
+        />
       </Link>
       <button onClick={toggleMenu} aria-label="Toggle menu" className="burgerButton">
         {isOpen ? (

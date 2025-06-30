@@ -1,33 +1,28 @@
-import type {Metadata} from 'next'
-import {Chivo, Lora} from 'next/font/google'
+import Header from './components/Header'
+import CookieModal from './components/CookieModal'
+import Footer from './components/Footer'
 import './globals.css'
-import Footer from '../app/components/Footer'
-import Header from '../app/components/Header'
-import CookieModal from '../app/components/CookieModal'
+import {Chivo, Lora} from 'next/font/google'
 
-const geistSans = Chivo({
+const chivo = Chivo({
   variable: '--font-geist-sans',
   subsets: ['latin'],
 })
 
-const geistMono = Lora({
+const lora = Lora({
   variable: '--font-geist-mono',
   subsets: ['latin'],
 })
 
-export const metadata: Metadata = {
-  title: '🍸 Samba Bar Events',
+export const metadata = {
+  title: 'Samba Bar Events',
   description: 'Samba Bar Events',
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${chivo.variable} ${lora.variable} antialiased`}>
         <Header />
         <CookieModal />
         {children}

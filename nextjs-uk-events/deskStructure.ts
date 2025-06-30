@@ -1,5 +1,5 @@
-import { StructureBuilder } from 'sanity/structure'
-import { Folder, LayoutTemplate, FileText } from 'lucide-react'
+import {StructureBuilder} from 'sanity/structure'
+import {Folder, LayoutTemplate, FileText} from 'lucide-react'
 
 const structure = (S: StructureBuilder) =>
   S.list()
@@ -15,6 +15,7 @@ const structure = (S: StructureBuilder) =>
             .items([
               S.documentTypeListItem('contactPage').title('Contact Page'),
               S.documentTypeListItem('cocktailBarHire').title('Cocktail Bar Hire Page'),
+              S.documentTypeListItem('corporateBarHire').title('Corporate Bar Hire Page'),
               S.documentTypeListItem('mobileBarHirePackages').title('Mobile Bar Hire Packages'),
               S.documentTypeListItem('entertainmentPage').title('Entertainment Page'),
               S.documentTypeListItem('masterclassPage').title('Master Class Page'),

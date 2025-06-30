@@ -1,5 +1,27 @@
 import EmailProvider from 'next-auth/providers/email'
 import type {NextAuthOptions} from 'next-auth'
+import type {JWT} from 'next-auth/jwt'
+import type {Session} from 'next-auth'
+
+// Extend the built-in session types
+declare module 'next-auth' {
+  interface Session {
+    user: {
+      id: string
+      email?: string | null
+      name?: string | null
+      image?: string | null
+      role?: string
+    }
+  }
+}
+
+declare module 'next-auth/jwt' {
+  interface JWT {
+    role?: string
+    email?: string
+  }
+}
 
 const allowedEmails = ['invite@ukevents.com']
 
@@ -18,7 +40,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({token}) {
+    async jwt({token}: {token: JWT}) {
       if (token?.email && allowedEmails.includes(token.email)) {
         token.role = 'ADMIN'
       } else {
@@ -26,9 +48,9 @@ export const authOptions: NextAuthOptions = {
       }
       return token
     },
-    async session({session, token}) {
+    async session({session, token}: {session: Session; token: JWT}) {
       if (session.user) {
-        ;(session.user as any).role = token.role
+        session.user.role = token.role
       }
       return session
     },

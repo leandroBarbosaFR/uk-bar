@@ -24,6 +24,7 @@ export const linkType = defineType({
         {type: 'entertainmentPage'},
         {type: 'aboutUsPage'},
         {type: 'masterclassPage'},
+        {type: 'corporateBarHire'},
       ],
     }),
     defineField({

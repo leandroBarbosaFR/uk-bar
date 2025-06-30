@@ -64,7 +64,10 @@ export default function WhyUsSection() {
   }, [])
 
   return (
-    <section className="w-full bg-[#33483e] pt-[100px] pb-[100px] px-0 sm:pt-[50px] sm:pb-[50px] sm:px-0" id={'#whyus'}>
+    <section
+      className="w-full bg-[#33483e] pt-[100px] pb-[100px] px-0 sm:pt-[50px] sm:pb-[50px] sm:px-0"
+      id={'#whyus'}
+    >
       <h2 className="text-4xl font-bold text-center mb-12 text-[#FAFAFA]">{sectionTitle}</h2>
       {sectionBody && (
         <div className="prose text-white text-center mx-auto w-full md:w-1/3 mb-12 item-description">
@@ -78,10 +81,10 @@ export default function WhyUsSection() {
             className="relative w-full sm:w-1/2 lg:w-1/6 h-[500px] sm:h-[500px] lg:h-[600px] overflow-hidden group"
           >
             <Image
-              src={urlFor(item.image).width(7172).url()}
-              alt={item.title}
+              src={urlFor(item.image).width(800).height(600).quality(75).auto('format').url()}
+              alt={item.title || 'Image'}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className="whyus-img group-hover:scale-105"
             />
             <div className="absolute bottom-0 left-0 w-full bg-[#33483e] text-white text-center py-4 transition-all duration-500 group-hover:translate-y-full">
               <h3 className="text-lg font-semibold">{item.title}</h3>

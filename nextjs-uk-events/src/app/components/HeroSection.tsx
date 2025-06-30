@@ -6,89 +6,83 @@ import {PortableText} from '@portabletext/react'
 import type {PortableTextBlock} from '@portabletext/types'
 import {client} from '@/sanity/client'
 import {urlFor} from '../../lib/sanityImage'
-// import gsap from 'gsap'
-// import {ScrollTrigger} from 'gsap/dist/ScrollTrigger'
 import '../styles/heroSection.css'
-
-// gsap.registerPlugin(ScrollTrigger)
 
 const HERO_QUERY = `*[_type == "hero"][0]{ _id, title, subtitle, image, body }`
 
-export default function HeroSection() {
-  interface HeroData {
-    title: string
-    subtitle: string
-    body: PortableTextBlock[]
-    image: {
-      asset: {
-        _ref: string
-        _type: string
-      }
+interface HeroData {
+  title: string
+  subtitle: string
+  body: PortableTextBlock[]
+  image: {
+    asset: {
+      _ref: string
+      _type: string
     }
   }
+}
 
-  const [hero, setHero] = useState<HeroData | null>(null)
+export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const [hero, setHero] = useState<HeroData | null>(null)
 
+  // Intersection observer
   useEffect(() => {
-    // Fetch data client-side
-    async function fetchHero() {
-      const data = await client.fetch(HERO_QUERY)
-      setHero(data)
-    }
-    fetchHero()
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.disconnect()
+        }
+      },
+      {threshold: 0.1},
+    )
+
+    if (containerRef.current) observer.observe(containerRef.current)
+    return () => observer.disconnect()
   }, [])
 
-  // useEffect(() => {
-  //   if (!containerRef.current) return
-  //   if (!hero) return
-
-  //   const title = containerRef.current.querySelector('.hero-title')
-  //   const subtitle = containerRef.current.querySelector('.hero-subtitle')
-  //   const body = containerRef.current.querySelector('.hero-body')
-
-  //   const ctx = gsap.context(() => {
-  //     gsap.to([title, subtitle, body], {
-  //       scrollTrigger: {
-  //         trigger: containerRef.current,
-  //         start: 'top top',
-  //         end: 'bottom top',
-  //         scrub: true,
-  //       },
-  //       opacity: 0,
-  //       ease: 'none',
-  //     })
-  //   }, containerRef)
-
-  //   return () => ctx.revert()
-  // }, [hero])
-
-  if (!hero) return null // or loading spinner
+  // Fetch only if visible
+  useEffect(() => {
+    if (isVisible && !hero) {
+      client.fetch(HERO_QUERY).then((data) => setHero(data))
+    }
+  }, [isVisible, hero])
 
   return (
-    <section ref={containerRef} className="relative h-screen">
-      {/* Background Image */}
-      {hero.image && (
-        <Image
-          src={urlFor(hero.image).width(1600).quality(75).format('webp').url()}
-          alt="Hero image"
-          fill
-          style={{objectFit: 'cover'}}
-          priority
-        />
-      )}
+    <section ref={containerRef} className="relative min-h-[100vh] aspect-[16/9]">
+      {!hero ? (
+        <div className="min-h-[100vh] flex items-center justify-center bg-[#f1f0e7]">
+          <p className="text-[#33483e] text-lg animate-pulse">Chargement en cours…</p>
+        </div>
+      ) : (
+        <>
+          {/* Background Image */}
+          {hero.image && (
+            <Image
+              src={urlFor(hero.image).width(1600).quality(75).format('webp').url()}
+              alt={hero.title ? `Background image for ${hero.title}` : 'Hero background'}
+              fill
+              className="hero-bg-img"
+              priority
+            />
+          )}
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
-      <div className="justify-items-center hero-section-container absolute">
-        <h1 className="hero-title">{hero.title}</h1>
-        <div className="hero-subtitle">
-          <h3>{hero.subtitle}</h3>
-        </div>
-        <div className="hero-body">
-          <PortableText value={hero.body} />
-        </div>
-      </div>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+
+          <div className="justify-items-center hero-section-container absolute top-1/2 left-1/2">
+            <h1 className="hero-title">{hero.title}</h1>
+            <div className="hero-subtitle">
+              <h3>{hero.subtitle}</h3>
+            </div>
+            <div className="hero-body">
+              <PortableText value={hero.body} />
+            </div>
+          </div>
+        </>
+      )}
     </section>
   )
 }

@@ -1,3 +1,20 @@
 .right-image-section-masterclass {
-  padding: 200px 0 0 0;
+  padding: 200px 0 100px 0;
+  background-color: #f1f0e7;
+}
+
+.masterclass-image-wrapper {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 3 / 2; /* ou 4 / 3 selon tes visuels */
+  position: relative;
+  margin-top: 2rem;
+}
+
+.masterclass-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px; /* optionnel */
+  display: block;
 }

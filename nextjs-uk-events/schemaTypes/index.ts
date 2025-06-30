@@ -20,6 +20,7 @@ import {carouselSectionType} from './carouselSectionType'
 import {entertainmentType} from './entertainmentType'
 import {masterClassType} from './masterClassType'
 import {aboutUsType} from './aboutUsType'
+import {corporatelBarHireType} from './corporateBarHireType'
 
 export const schemaTypes = [
   aboutType,
@@ -44,4 +45,5 @@ export const schemaTypes = [
   entertainmentType,
   masterClassType,
   aboutUsType,
+  corporatelBarHireType,
 ]

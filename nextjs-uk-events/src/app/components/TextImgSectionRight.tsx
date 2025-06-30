@@ -6,7 +6,6 @@ import {PortableText} from '@portabletext/react'
 import type {PortableTextBlock} from '@portabletext/types'
 import {client} from '@/sanity/client'
 import {urlFor} from '../../lib/sanityImage'
-// import LogoSvg from '../components/LogoSvgPackages'
 
 import '../styles/TextImgSectionRight.css'
 
@@ -48,27 +47,27 @@ export default function TextImgSectionRight() {
         >
           {TextImgSectionRight.title}
         </h1>
-        {/* <div className="flex justify-center row-start-1 svg-wrapper">
-          <LogoSvg />
-        </div> */}
         <h3
           className="col-span-12 text-[#33483e] font-bold text-center row-start-2 text-1xl sm:text-4xl md:text-4xl lg:text-[30px] whitespace-normal sm:whitespace-nowrap"
           style={{gridColumn: '1/12'}}
         >
           {TextImgSectionRight.subtitle}
         </h3>
-        <div className="col-start-1 col-end-12 row-start-4 lg:col-start-7 lg:col-end-12 lg:row-start-3 text-[#33483e] text-1xl sm:text-4xl md:text-4xl lg:text-[16px] item-description">
+        <div className="col-start-1 col-end-12 row-start-4 lg:col-start-7 lg:col-end-12 lg:row-start-3 text-[#33483e] text-[16px] sm:text-base md:text-lg lg:text-[16px] item-description">
           <PortableText value={TextImgSectionRight.body} />
         </div>
         <div className="col-start-2 col-end-11 row-start-3 lg:col-start-2 lg:col-end-7 lg:row-start-3">
           {TextImgSectionRight.image && (
-            <Image
-              width={7172}
-              height={7172}
-              src={urlFor(TextImgSectionRight.image).width(7172).url()}
-              alt="Hero image"
-              quality={100}
-            />
+            <div className="text-img-right-wrapper">
+              <Image
+                width={1200}
+                height={800}
+                src={urlFor(TextImgSectionRight.image).width(1200).url()}
+                alt={TextImgSectionRight.title || 'Right section image'}
+                className="text-img-right"
+                priority
+              />
+            </div>
           )}
         </div>
       </div>

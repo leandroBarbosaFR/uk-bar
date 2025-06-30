@@ -6,7 +6,6 @@ import {PortableText} from '@portabletext/react'
 import type {PortableTextBlock} from '@portabletext/types'
 import {client} from '@/sanity/client'
 import {urlFor} from '../../lib/sanityImage'
-
 import '../styles/about.css'
 
 const ABOUT_QUERY = `*[_type == "aboutUsPage"][0]{ _id, title, subtitle, image, body }`
@@ -23,46 +22,49 @@ export default function About() {
       }
     }
   }
-  const [About, setAbout] = useState<AboutData | null>(null)
+
+  const [aboutData, setAboutData] = useState<AboutData | null>(null)
 
   useEffect(() => {
-    // Fetch data client-side
     async function fetchAbout() {
       const data = await client.fetch(ABOUT_QUERY)
-      setAbout(data)
+      setAboutData(data)
     }
     fetchAbout()
   }, [])
 
-  if (!About) return null // or show a loader, placeholder, etc.
+  if (!aboutData) {
+    return (
+      <section className="min-h-[60vh] flex items-center justify-center bg-[#f1f0e7]">
+        <p className="text-[#33483e] text-lg animate-pulse">Chargement...</p>
+      </section>
+    )
+  }
 
   return (
-    <section className="right-image-section-about">
-      <div className="gap-8 grid grid-cols-12">
-        <h1
-          className=" row-start-1 text-4xl sm:text-7xl text-center text-[#33483e] md:text-5xl lg:text-[130px] font-bold "
-          style={{gridColumn: '1/13'}}
-        >
-          {About.title}
+    <section className="right-image-section-about min-h-screen">
+      <div className="gap-8 grid grid-cols-12 px-4">
+        <h1 className="row-start-1 col-span-12 text-4xl sm:text-7xl text-center text-[#33483e] font-bold">
+          {aboutData.title}
         </h1>
-        <h3
-          className="col-span-12 text-[#33483e] font-bold text-center row-start-2 text-1xl sm:text-4xl md:text-4xl lg:text-[30px] whitespace-normal sm:whitespace-nowrap"
-          style={{gridColumn: '1/12'}}
-        >
-          {About.subtitle}
+        <h3 className="col-span-12 text-[#33483e] font-bold text-center text-xl sm:text-4xl">
+          {aboutData.subtitle}
         </h3>
-        <div className="col-start-1 col-end-12 row-start-4 lg:col-start-7 lg:col-end-12 lg:row-start-3 text-[#33483e] text-1xl sm:text-4xl md:text-4xl lg:text-[16px] item-description">
-          <PortableText value={About.body} />
+        <div className="col-span-12 lg:col-start-7 lg:col-end-13 text-[#33483e] text-lg item-description">
+          <PortableText value={aboutData.body} />
         </div>
-        <div className="col-start-2 col-end-11 row-start-3 lg:col-start-2 lg:col-end-7 lg:row-start-3">
-          {About.image && (
-            <Image
-              width={7172}
-              height={7172}
-              src={urlFor(About.image).width(7172).url()}
-              alt="Hero image"
-              quality={100}
-            />
+        <div className="col-span-12 lg:col-span-5">
+          {aboutData.image && (
+            <div className="about-image-wrapper">
+              <Image
+                src={urlFor(aboutData.image).width(800).url()}
+                alt={`À propos – ${aboutData.title}`}
+                width={800}
+                height={533}
+                className="responsive-img"
+                priority={true}
+              />
+            </div>
           )}
         </div>
       </div>

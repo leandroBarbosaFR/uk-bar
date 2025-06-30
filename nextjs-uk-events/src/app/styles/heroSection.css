@@ -38,6 +38,11 @@
   transform: translate(-50%, -50%);
 }
 
+.hero-bg-img {
+  object-fit: cover;
+  z-index: -1; /* Pour t’assurer qu’elle reste en fond */
+}
+
 @media (max-width: 768px) {
   .hero-title {
     color: var(--urban-white);

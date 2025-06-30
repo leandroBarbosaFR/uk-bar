@@ -4,10 +4,17 @@ import '../styles/navDrawer.css'
 
 interface NavLink {
   _key: string
-  type: 'internal' | 'external'
-  anchor: string
   text: string
   blank?: boolean
+  internal?: {
+    _type: string
+    slug: string
+  }
+  external?: string
+  options?: {
+    list?: {title: string}[]
+  }
+  internalLinks?: {_id: string; title: string; slug?: {current: string}}[] | null
 }
 
 interface NavDrawerProps {
@@ -23,18 +30,23 @@ export default function NavDrawer({links, isOpen, onClose}: NavDrawerProps) {
     <div className="navDrawerOverlay" onClick={onClose}>
       <nav className="navDrawer" onClick={(e) => e.stopPropagation()}>
         <ul className="navdrawer-links">
-          {links.map((link) => (
-            <li key={link._key} className=".navdrawer-links-list">
-              <a
-                href={link.type === 'internal' ? link.anchor : `https://${link.anchor}`}
-                target={link.blank ? '_blank' : '_self'}
-                rel={link.blank ? 'noopener noreferrer' : undefined}
-                onClick={onClose}
-              >
-                {link.text}
-              </a>
-            </li>
-          ))}
+          {links.map((link) => {
+            // Conversion des données Sanity vers le format attendu
+            const href = link.internal ? `/${link.internal.slug}` : link.external || '#'
+
+            return (
+              <li key={link._key} className=".navdrawer-links-list">
+                <a
+                  href={href}
+                  target={link.blank ? '_blank' : '_self'}
+                  rel={link.blank ? 'noopener noreferrer' : undefined}
+                  onClick={onClose}
+                >
+                  {link.text}
+                </a>
+              </li>
+            )
+          })}
         </ul>
       </nav>
     </div>
