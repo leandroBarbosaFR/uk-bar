@@ -83,6 +83,7 @@
     overflow-x: hidden;
     overscroll-behavior: none;
     position: relative;
+    background-color: #f1f0e7;
   }
 
   main {

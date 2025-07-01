@@ -84,6 +84,7 @@ export default function WhyUsSection() {
               src={urlFor(item.image).width(800).height(600).quality(75).auto('format').url()}
               alt={item.title || 'Image'}
               fill
+              sizes="100vw"
               className="whyus-img group-hover:scale-105"
             />
             <div className="absolute bottom-0 left-0 w-full bg-[#33483e] text-white text-center py-4 transition-all duration-500 group-hover:translate-y-full">

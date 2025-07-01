@@ -28,20 +28,9 @@ export default function HeroSection() {
   const [hero, setHero] = useState<HeroData | null>(null)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          client.fetch(HERO_QUERY).then((data) => {
-            setHero(data)
-          })
-          observer.disconnect()
-        }
-      },
-      {threshold: 0.1},
-    )
-
-    if (containerRef.current) observer.observe(containerRef.current)
-    return () => observer.disconnect()
+    client.fetch(HERO_QUERY).then((data) => {
+      setHero(data)
+    })
   }, [])
 
   useEffect(() => {
@@ -70,22 +59,30 @@ export default function HeroSection() {
     })
   }, [hero])
 
-  if (!hero) return null
+  if (!hero) {
+    return (
+      <section className="min-h-screen bg-[transparent] flex items-center justify-center">
+        <div className="flex gap-1 text-2xl font-semibold text-neutral-700">
+          <span className="animate-bounce [animation-delay:-0.3s]">.</span>
+          <span className="animate-bounce [animation-delay:-0.15s]">.</span>
+          <span className="animate-bounce">.</span>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section ref={containerRef} className="relative min-h-[100vh]">
       {hero.image && (
         <Image
-          src={urlFor(hero.image).width(1600).quality(75).format('webp').url()}
-          alt={`Background image for ${hero.title}`}
-          fill
-          className="hero-bg-img"
-          priority
+          src={urlFor(hero.image).width(1200).url()}
+          alt={`Hero image for ${hero.title}`}
+          width={1200}
+          height={700}
+          className="w-full h-auto object-cover"
         />
       )}
-
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-
       <div className="hero-section-container">
         <h1 className="hero-title">{hero.title}</h1>
         <div className="hero-subtitle">

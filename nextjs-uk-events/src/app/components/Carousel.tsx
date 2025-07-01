@@ -142,6 +142,7 @@ export default function CurvedCardGallery() {
                   src={feature.image?.asset?.url || '/placeholder-image.jpg'}
                   alt={feature.title || 'Feature image'}
                   fill
+                  sizes="100vw"
                   className="feature-image"
                   priority={index === 0}
                 />
