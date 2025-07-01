@@ -72,18 +72,21 @@ export default function HeroSection() {
   }
 
   return (
-    <section ref={containerRef} className="relative min-h-[100vh]">
+    <section ref={containerRef} className="relative min-h-screen w-full overflow-hidden">
       {hero.image && (
         <Image
-          src={urlFor(hero.image).width(1200).url()}
+          src={urlFor(hero.image).width(1600).quality(75).format('webp').url()}
           alt={`Hero image for ${hero.title}`}
-          width={1200}
-          height={700}
-          className="w-full h-auto object-cover"
+          fill
+          sizes="100vw"
+          className="object-cover z-0"
+          priority
         />
       )}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-      <div className="hero-section-container">
+
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent z-10" />
+
+      <div className="hero-section-container relative z-20">
         <h1 className="hero-title">{hero.title}</h1>
         <div className="hero-subtitle">
           <h3>{hero.subtitle}</h3>
