@@ -4,7 +4,7 @@ import React, {useEffect, useState} from 'react'
 import {PortableText} from '@portabletext/react'
 import type {PortableTextBlock} from '@portabletext/types'
 import {client} from '@/sanity/client'
-import '../styles/privacyPolicyPage.css'
+import '../styles/PrivacyPolicyPage.css'
 
 const PRIVACY_POLICY_QUERY = `*[_type == "privacyPolicyPage"][0]{ _id, title, subtitle, body }`
 
