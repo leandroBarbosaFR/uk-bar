@@ -16,6 +16,7 @@ import {
 import '../styles/header.css'
 import HeaderMobile from '../components/HeaderMobile'
 import {ChevronDown} from 'lucide-react'
+import {Button} from '@/components/ui/button'
 
 interface NavLink {
   _key: string
@@ -154,8 +155,13 @@ export default function Header() {
         </nav>
 
         <div className="contact-button-wrapper">
-          <Link href="/contact" className="contact-button">
-            Contact
+          <Link href="/contact">
+            <Button
+              className="contact-button bg-[#f1f0e7] text-[#33483e] 
+                     hover:bg-[rgba(241, 240, 231, 0.9)] hover:text-[rgba(51, 72, 62, 0.9)]"
+            >
+              Contact
+            </Button>
           </Link>
         </div>
       </div>

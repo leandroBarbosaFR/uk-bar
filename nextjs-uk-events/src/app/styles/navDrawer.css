@@ -47,3 +47,50 @@
 .navdrawer-links-list:visited {
   color: rgba(255, 255, 255, 0.8);
 }
+
+/* ✅ Bouton qui ouvre les sous-menus */
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* ✅ Liste des sous-liens */
+.dropdown-submenu {
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dropdown-submenu a {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.dropdown-submenu a:hover {
+  color: white;
+}
+
+/* ✅ Fixe une petite erreur de classe : tu avais mis un "." dans la classe */
+.navdrawer-links-list:hover,
+.navdrawer-links-list:active,
+.navdrawer-links-list:visited {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ✅ Optionnel : ajoute un petit effet sur les icônes */
+.dropdown-toggle svg {
+  transition: transform 0.3s;
+}

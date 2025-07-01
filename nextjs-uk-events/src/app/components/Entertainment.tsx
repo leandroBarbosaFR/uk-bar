@@ -38,7 +38,7 @@ export default function Entertainment() {
 
   return (
     <section className="right-image-section-entertainment">
-      <div className="gap-8 grid grid-cols-12">
+      <div className="gap-8 grid grid-cols-12 px-4">
         <h1
           className=" row-start-1 text-4xl sm:text-7xl text-center text-[#33483e] md:text-5xl lg:text-[130px] font-bold "
           style={{gridColumn: '1/13'}}

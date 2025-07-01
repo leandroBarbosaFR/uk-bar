@@ -1,27 +1,27 @@
-.headerMobileContainer {
-  -webkit-box-align: center;
-  align-items: center;
-  gap: 20px;
-  background-color: var(--urban-green);
-  display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  border-radius: 5px;
-  padding: 16px 64px;
-  color: var(--urban-white);
-  border: 1px solid transparent;
-}
-
 .headerMobile {
-  border-radius: 5px;
-  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
   margin: 1.5rem 0 0 0;
   display: flex;
-  position: fixed;
-  top: 0%;
-  z-index: 1000;
+  justify-content: center; /* center the container */
+  padding: 0 16px; /* small side padding for small screens */
+  background-color: var(--urban-green);
+}
+
+.headerMobileContainer {
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: var(--urban-green);
+  padding: 16px 8px;
+  border-radius: 5px;
+  color: var(--urban-white);
+  border: 1px solid transparent;
   width: 100%;
+  max-width: 1200px; /* control the width */
 }
 
 .headerMobileContainer.scrolled {
@@ -31,6 +31,10 @@
 
 .burgerButton {
   color: white;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .burgerButton:hover,
@@ -39,8 +43,7 @@
 }
 
 @media (max-width: 768px) {
-  .headerMobile {
-    background-color: var(--urban-green);
-    margin: 8px 0;
+  .headerMobileContainer {
+    padding: 8px 8px;
   }
 }
