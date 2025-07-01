@@ -15,9 +15,8 @@ export default function TermsAndConditionsPage() {
     subtitle: string
     body: PortableTextBlock[]
   }
-  const [TermsAndConditionsPage, setTermsAndConditionsPage] = useState<TermsAndConditionsPageData | null>(
-    null,
-  )
+  const [TermsAndConditionsPage, setTermsAndConditionsPage] =
+    useState<TermsAndConditionsPageData | null>(null)
 
   useEffect(() => {
     // Fetch data client-side
@@ -32,20 +31,16 @@ export default function TermsAndConditionsPage() {
 
   return (
     <section className="main-terms-page">
-      <div className="gap-8 grid-container-terms">
-        <h1
-          className=" terms-title-terms text-4xl sm:text-7xl text-center text-[#33483e] md:text-5xl lg:text-[90px] font-bold "
-         
-        >
+      <div className="grid grid-cols-12 gap-8 px-4">
+        <h1 className="col-span-12 text-4xl sm:text-7xl text-center text-[#33483e] font-bold">
           {TermsAndConditionsPage.title}
         </h1>
-        <h3
-          className=" terms-subtitle-terms text-[#33483e] font-bold text-center  text-1xl sm:text-4xl md:text-4xl lg:text-[24px] whitespace-normal sm:whitespace-nowrap"
-     
-        >
+
+        <h3 className="col-span-12 text-[#33483e] font-bold text-center text-xl sm:text-4xl">
           {TermsAndConditionsPage.subtitle}
         </h3>
-        <div className="terms-body-terms text-[#33483e] text-1xl sm:text-4xl md:text-4xl lg:text-[24px]">
+
+        <div className="col-span-12 lg:col-start-2 lg:col-end-12 text-[#33483e] text-lg item-description">
           <PortableText value={TermsAndConditionsPage.body} />
         </div>
       </div>

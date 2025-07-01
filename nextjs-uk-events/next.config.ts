@@ -31,6 +31,15 @@ const nextConfig: NextConfig = {
 
   transpilePackages: ['@shadcn/ui'],
 
+  async rewrites() {
+    return [
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap',
+      },
+    ]
+  },
+
   headers: async () => [
     {
       source: '/_next/static/:path*',

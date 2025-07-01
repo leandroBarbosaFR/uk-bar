@@ -1,27 +1,14 @@
 .main-terms-page {
-  padding: 200px 0 0 0;
+  padding: 200px 25px 80px 25px;
   color: var(--urban-green);
 }
 
-.grid-container-terms {
-    display: grid;
-    grid-template-columns: repeat(12,1fr);
+@media (max-width: 767px) {
+  .main-terms-page {
+    padding: 120px 16px 40px 16px;
+  }
 }
 
-.terms-title-terms {
-    grid-column: 2/11;
-    grid-row: 1;
-    font-size: 90px;
-}
-
-.terms-subtitle-terms {
-    grid-column: 2/11;
-    grid-row: 2;
-    font-size: 24px;
-}
-
-.terms-body-terms {
-    grid-column: 2/11;
-    grid-row: 3;
-    font-size: 24px;
+.item-description {
+  font-size: var(--font-geist-mono);
 }

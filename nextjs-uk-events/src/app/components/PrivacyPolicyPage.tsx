@@ -4,49 +4,40 @@ import React, {useEffect, useState} from 'react'
 import {PortableText} from '@portabletext/react'
 import type {PortableTextBlock} from '@portabletext/types'
 import {client} from '@/sanity/client'
+import '../styles/privacyPolicyPage.css'
 
-import '../styles/PrivacyPolicyPage.css'
+const PRIVACY_POLICY_QUERY = `*[_type == "privacyPolicyPage"][0]{ _id, title, subtitle, body }`
 
-const PrivacyPolicyPage_QUERY = `*[_type == "privacyPolicyPage"][0]{ _id, title, subtitle, body }`
+interface PrivacyPolicyPageData {
+  title: string
+  subtitle: string
+  body: PortableTextBlock[]
+}
 
 export default function PrivacyPolicyPage() {
-  interface PrivacyPolicyPageData {
-    title: string
-    subtitle: string
-    body: PortableTextBlock[]
-  }
-  const [PrivacyPolicyPage, setPrivacyPolicyPage] = useState<PrivacyPolicyPageData | null>(
-    null,
-  )
+  const [privacyPolicy, setPrivacyPolicy] = useState<PrivacyPolicyPageData | null>(null)
 
   useEffect(() => {
-    // Fetch data client-side
-    async function fetchPrivacyPolicyPage() {
-      const data = await client.fetch(PrivacyPolicyPage_QUERY)
-      setPrivacyPolicyPage(data)
+    async function fetchData() {
+      const data = await client.fetch(PRIVACY_POLICY_QUERY)
+      setPrivacyPolicy(data)
     }
-    fetchPrivacyPolicyPage()
+    fetchData()
   }, [])
 
-  if (!PrivacyPolicyPage) return null // or show a loader, placeholder, etc.
+  if (!privacyPolicy) return null
 
   return (
-    <section className="main-terms-page">
-      <div className="gap-8 grid-container-privacy">
-        <h1
-          className=" terms-title-privacy text-4xl sm:text-7xl text-center text-[#33483e] md:text-5xl lg:text-[90px] font-bold "
-         
-        >
-          {PrivacyPolicyPage.title}
+    <section className="main-privacy-page">
+      <div className="grid grid-cols-12 gap-8 px-4">
+        <h1 className="col-span-12 text-4xl sm:text-7xl text-center text-[#33483e] font-bold">
+          {privacyPolicy.title}
         </h1>
-        <h3
-          className=" terms-subtitle-privacy text-[#33483e] font-bold text-center  text-1xl sm:text-4xl md:text-4xl lg:text-[24px] whitespace-normal sm:whitespace-nowrap"
-     
-        >
-          {PrivacyPolicyPage.subtitle}
+        <h3 className="col-span-12 text-[#33483e] font-bold text-center text-xl sm:text-4xl">
+          {privacyPolicy.subtitle}
         </h3>
-        <div className="terms-body-privacy text-[#33483e] text-1xl sm:text-4xl md:text-4xl lg:text-[24px]">
-          <PortableText value={PrivacyPolicyPage.body} />
+        <div className="col-span-12 lg:col-start-2 lg:col-end-12 text-[#33483e] text-lg item-description">
+          <PortableText value={privacyPolicy.body} />
         </div>
       </div>
     </section>

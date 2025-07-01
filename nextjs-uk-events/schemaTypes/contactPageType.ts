@@ -60,15 +60,41 @@ export const contactPageType = defineType({
       type: 'string',
     }),
     defineField({
-      name: 'addressLabel',
-      title: 'Address Label',
-      type: 'string',
-      initialValue: 'Address',
-    }),
-    defineField({
-      name: 'address',
-      title: 'Address',
-      type: 'text',
+      name: 'socialNetworks',
+      title: 'Social Networks',
+      type: 'array',
+      of: [
+        defineField({
+          name: 'social',
+          title: 'Social Network',
+          type: 'object',
+          fields: [
+            {
+              name: 'platform',
+              title: 'Platform',
+              type: 'string',
+              options: {
+                list: [
+                  {title: 'Instagram', value: 'instagram'},
+                  {title: 'Facebook', value: 'facebook'},
+                  {title: 'LinkedIn', value: 'linkedin'},
+                  {title: 'Twitter / X', value: 'twitter'},
+                  {title: 'YouTube', value: 'youtube'},
+                  {title: 'TikTok', value: 'tiktok'},
+                ],
+                layout: 'dropdown',
+              },
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'url',
+              title: 'URL',
+              type: 'url',
+              validation: (Rule) => Rule.uri({allowRelative: false}).required(),
+            },
+          ],
+        }),
+      ],
     }),
   ],
 })

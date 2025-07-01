@@ -5,7 +5,7 @@ import '../styles/contact.css'
 import {PortableText} from '@portabletext/react'
 import type {PortableTextBlock} from '@portabletext/types'
 import {client} from '@/sanity/client'
-import {UserPlus, Phone, Mail} from 'lucide-react'
+import {Phone, Mail, UserPlus} from 'lucide-react'
 import Link from 'next/link'
 
 const CONTACT_QUERY = `*[_type == "contactPage"][0]{
@@ -15,9 +15,11 @@ const CONTACT_QUERY = `*[_type == "contactPage"][0]{
   email,
   phoneLabel,
   phone,
-  addressLabel,
-  address,
-  infosTitle
+  infosTitle,
+    socialNetworks[]{
+    platform,
+    url
+  }
 }`
 
 export default function Contact() {
@@ -28,9 +30,11 @@ export default function Contact() {
     email?: string
     phoneLabel?: string
     phone?: string
-    addressLabel?: string
-    address?: string
     infosTitle?: string
+    socialNetworks?: {
+      platform: string
+      url: string
+    }[]
   }
 
   const [contactData, setContactData] = useState<ContactPage | null>(null)
@@ -44,7 +48,7 @@ export default function Contact() {
   }, [])
 
   if (!contactData) return null
-
+  console.log(contactData)
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow bg-[#f1f0e7] main-contact-page">
@@ -71,14 +75,6 @@ export default function Contact() {
 
           <div className="mt-12 grid md:grid-cols-3 gap-6 text-center">
             <div className="bg-transparent p-6 text-left flex justify-center md:justify-start">
-              <Link href="/" className="font-medium text-lg flex-col mb-2 flex items-center gap-2">
-                <UserPlus />
-                {contactData.addressLabel || 'Visit Us'}
-                <p className="text-gray-600">{contactData.address}</p>
-              </Link>
-            </div>
-
-            <div className="bg-transparent p-6 text-left flex justify-center md:justify-start">
               <Link
                 href="tel:+4407731389038"
                 className="font-medium text-lg flex-col mb-2 flex items-center gap-2"
@@ -98,6 +94,25 @@ export default function Contact() {
                 {contactData.emailLabel || 'Email Us'}
                 <p className="text-gray-600">{contactData.email}</p>
               </Link>
+            </div>
+            <div className="bg-transparent p-6 text-left flex justify-center">
+              <div className="font-medium text-lg flex-col mb-2 flex items-center gap-2">
+                <UserPlus /> {/* or Globe, Share2, or a relevant Lucide icon */}
+                <p className="text-center">{'Follow Us:'}</p>
+                <div className="flex flex-col items-center gap-2 mt-2">
+                  {contactData.socialNetworks?.map((social, index) => (
+                    <Link
+                      key={index}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-600 hover:underline capitalize"
+                    >
+                      {social.platform}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

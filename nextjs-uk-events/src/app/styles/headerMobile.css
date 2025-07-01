@@ -15,7 +15,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  background-color: var(--urban-green);
+  /* background-color: var(--urban-green); */
   padding: 16px 8px;
   border-radius: 5px;
   color: var(--urban-white);
